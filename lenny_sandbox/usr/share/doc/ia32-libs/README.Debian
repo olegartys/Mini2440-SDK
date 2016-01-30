@@ -1,0 +1,46 @@
+ia32-libs for Debian
+--------------------
+
+This package delivers a set of pre-compiled ia32 (ia32 family) shared
+libraries, so that ia32 Linux applications can be executed on ia32
+systems running Debian ia64 or amd64. This is a lame hack to solve
+this problem for the Debian 3.1 (sarge) release, and should be
+replaced or updated with a better solution for later releases.
+
+The "right" way to do this will be to extend the Debian package
+management toolset so that it understands how to install packages from
+multiple architectures onto a single system, perhaps with some sort of
+sorting of choices by architecture preference.  There are a number of
+resulting issues that need to be sorted out, however.  Too many
+packages install architecture dependent files in paths that do not
+have an architecture specific component, so installing the same
+package from more than one architecture on the same system would cause
+file overlaps.
+
+The implementation of this package is adopted from amd64-libs which is
+again adopted from the previous ia32-libs package.  The previous
+package was similar to the TurboLinux package of the same name
+(ia32-libs) it was inspired by.  We take a set of ia32 .deb's and
+sources from the binary-i386 tree from http://ftp.se.debian.org/,
+unpack them, and repackage them for delivery with a slightly changed
+directory tree on the ia64/amd64 systems.  Appropriate ldconfig calls
+in the postinst script register the delivered libraries with the
+dynamic loader.  So, as long as all the shared libraries needed by the
+application in question are included in this package, the application
+should "just work" once this package is installed.
+
+If more libraries are needed, file wishlist severity bugs against ia32-libs
+in the Debian bug tracking system at bugs.debian.org and we'll try to oblige.
+For a quick fix, you can download a suitable ia32 (i386 in Debian architecture
+terms) binary package, and install it on your ia64 or amd64 system using:
+
+	dpkg -X <package_name>.deb /emul/ia32-linux
+	ldconfig
+
+Note that ia32-libs-dev was added specifically to allow building of an amd64
+biarch compiler suite, it is not intended that anyone use this package to do
+"real" development work for ia32 systems!
+
+Enjoy!
+
+ -- Tollef Fog Heen <tfheen@debian.org>, Mon Apr 11 16:21:42 2005

@@ -1,0 +1,7 @@
+804d8b2f5f751e57e0a05690bb4fa5bc  usr/bin/esd-config
+17f33b146ee5f84cdd2a7410bed70bc6  usr/lib/libesd.a
+49a5849bee6c65600a8ca7e2f9c23d88  usr/lib/libesd.la
+7d472a29e5d559a6c67b7a65293b3f42  usr/lib/pkgconfig/esound.pc
+bc03e08057f66940339f2176e714be59  usr/share/man/man1/esd-config.1.gz
+178d9b7ceca02521ab610b5589643389  usr/share/aclocal/esd.m4
+f0dd5c4bb100f01fb9731307c75aca1f  usr/include/esd.h

@@ -1,0 +1,10 @@
+In this own directory you can find any working metarials for your FriendlyARM2440 board.
+Explanation:
+- "kernel" dir contains sources and already compiled kernels for the board.
+- "loader" dir contains system loaders (such as u-boot) and their sources.
+- "MiniTools-20131129" dir contains board maintainers X tools for flashing and connecting to board.
+- "OpenEmbedded" dir contains utilities  to build your own distribution with OpenEmbedded project utils.
+- "qemu" dir contains working x86_64 emulator of 2440 board.
+- "rootfs" dir contains ready root filesystems to use with board (ex. Debian 5).
+- "toolchain" dir contains different toolchains to cross-compile programs for your board.
+- "yaffs2utils" dir contains utilities to make yaffs2 filesystem image of your system.  

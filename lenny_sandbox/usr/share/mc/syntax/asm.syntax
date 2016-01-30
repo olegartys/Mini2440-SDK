@@ -1,0 +1,20 @@
+#  ASM definition created by Michelle Konzack <linux4michelle@freenet.de>
+#  This definition is under the GNU GPL version 3.0.
+
+context default
+    keyword /\*				brown/22
+    keyword \*/				brown/22
+    keyword @*\n			green/22
+    keyword linestart +:		brightmagenta/22
+
+context exclusive /\* \*/		brown/22
+    spellcheck
+
+context linestart # \n			brightred/22
+    keyword <+>				red/22
+
+context linestart ENTRY(*) \n		brightgreen/22
+
+
+file ..\*\\.(S|asm)$ Assembler\sSource
+include asm.syntax

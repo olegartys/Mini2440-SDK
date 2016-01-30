@@ -1,0 +1,16 @@
+/lib/modules/2.6.32.2-FriendlyARM/kernel/net/wireless/cfg80211.ko:
+/lib/modules/2.6.32.2-FriendlyARM/kernel/net/wireless/lib80211.ko:
+/lib/modules/2.6.32.2-FriendlyARM/kernel/net/mac80211/mac80211.ko: /lib/modules/2.6.32.2-FriendlyARM/kernel/net/wireless/cfg80211.ko
+/lib/modules/2.6.32.2-FriendlyARM/kernel/drivers/misc/eeprom/eeprom_93cx6.ko:
+/lib/modules/2.6.32.2-FriendlyARM/kernel/drivers/scsi/scsi_wait_scan.ko:
+/lib/modules/2.6.32.2-FriendlyARM/kernel/drivers/net/wireless/rt2x00/rt2500usb.ko: /lib/modules/2.6.32.2-FriendlyARM/kernel/drivers/net/wireless/rt2x00/rt2x00usb.ko /lib/modules/2.6.32.2-FriendlyARM/kernel/drivers/net/wireless/rt2x00/rt2x00lib.ko /lib/modules/2.6.32.2-FriendlyARM/kernel/net/mac80211/mac80211.ko /lib/modules/2.6.32.2-FriendlyARM/kernel/net/wireless/cfg80211.ko
+/lib/modules/2.6.32.2-FriendlyARM/kernel/drivers/net/wireless/rt2x00/rt2x00usb.ko: /lib/modules/2.6.32.2-FriendlyARM/kernel/drivers/net/wireless/rt2x00/rt2x00lib.ko /lib/modules/2.6.32.2-FriendlyARM/kernel/net/mac80211/mac80211.ko /lib/modules/2.6.32.2-FriendlyARM/kernel/net/wireless/cfg80211.ko
+/lib/modules/2.6.32.2-FriendlyARM/kernel/drivers/net/wireless/rt2x00/rt2800usb.ko: /lib/modules/2.6.32.2-FriendlyARM/kernel/drivers/net/wireless/rt2x00/rt2x00usb.ko /lib/modules/2.6.32.2-FriendlyARM/kernel/drivers/net/wireless/rt2x00/rt2x00lib.ko /lib/modules/2.6.32.2-FriendlyARM/kernel/net/mac80211/mac80211.ko /lib/modules/2.6.32.2-FriendlyARM/kernel/net/wireless/cfg80211.ko
+/lib/modules/2.6.32.2-FriendlyARM/kernel/drivers/net/wireless/rt2x00/rt73usb.ko: /lib/modules/2.6.32.2-FriendlyARM/kernel/drivers/net/wireless/rt2x00/rt2x00usb.ko /lib/modules/2.6.32.2-FriendlyARM/kernel/drivers/net/wireless/rt2x00/rt2x00lib.ko /lib/modules/2.6.32.2-FriendlyARM/kernel/net/mac80211/mac80211.ko /lib/modules/2.6.32.2-FriendlyARM/kernel/net/wireless/cfg80211.ko
+/lib/modules/2.6.32.2-FriendlyARM/kernel/drivers/net/wireless/rt2x00/rt2x00lib.ko: /lib/modules/2.6.32.2-FriendlyARM/kernel/net/mac80211/mac80211.ko /lib/modules/2.6.32.2-FriendlyARM/kernel/net/wireless/cfg80211.ko
+/lib/modules/2.6.32.2-FriendlyARM/kernel/drivers/net/wireless/zd1211rw/zd1211rw.ko: /lib/modules/2.6.32.2-FriendlyARM/kernel/net/mac80211/mac80211.ko /lib/modules/2.6.32.2-FriendlyARM/kernel/net/wireless/cfg80211.ko
+/lib/modules/2.6.32.2-FriendlyARM/kernel/drivers/net/wireless/rtl818x/rtl8187.ko: /lib/modules/2.6.32.2-FriendlyARM/kernel/net/mac80211/mac80211.ko /lib/modules/2.6.32.2-FriendlyARM/kernel/net/wireless/cfg80211.ko /lib/modules/2.6.32.2-FriendlyARM/kernel/drivers/misc/eeprom/eeprom_93cx6.ko
+/lib/modules/2.6.32.2-FriendlyARM/kernel/drivers/net/wireless/ath/ar9170/ar9170usb.ko: /lib/modules/2.6.32.2-FriendlyARM/kernel/net/mac80211/mac80211.ko /lib/modules/2.6.32.2-FriendlyARM/kernel/drivers/net/wireless/ath/ath.ko /lib/modules/2.6.32.2-FriendlyARM/kernel/net/wireless/cfg80211.ko
+/lib/modules/2.6.32.2-FriendlyARM/kernel/drivers/net/wireless/ath/ath.ko: /lib/modules/2.6.32.2-FriendlyARM/kernel/net/wireless/cfg80211.ko
+/lib/modules/2.6.32.2-FriendlyARM/kernel/drivers/net/wireless/zd1201.ko:
+/lib/modules/2.6.32.2-FriendlyARM/kernel/drivers/char/mini2440_hello_module.ko:

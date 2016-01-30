@@ -1,0 +1,13 @@
+mc for Debian
+-------------
+
+ -  In order to get rid of the commandline history to be full with cd commands
+    from the both boxes set this environment variable:
+     export HISTCONTROL=ignoreboth
+ 
+    This is a issue of bash, not of mc. This would fix it.
+
+ -  In newer mc versions ( >=4.6.2~pre1-1 ) the behaviour of M-o changed. 
+    The old behaviour can now be found on the M-i key.
+
+ -- Patrick Winnertz <winnie@debian.org> Tue, 05 Mar 2008 11:08:27 +0100

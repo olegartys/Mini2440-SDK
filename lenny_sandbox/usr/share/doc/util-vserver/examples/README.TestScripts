@@ -1,0 +1,56 @@
+===============================================================================
+
+To be sure that your setup works fine, we got a test script that checks some
+basic functionality. So download the [testme.sh] script to check that
+everything's fine.
+
+# Get the script
+wget http://vserver.13thfloor.at/Stuff/SCRIPT/testme.sh
+
+# Make it executable
+chmod +x testme.sh
+
+# Become root
+su
+
+# Run the test script
+./testme.sh
+
+===============================================================================
+
+To be sure that your setup works fine, we got a test script that checks some
+filesystem functionality. So download the [testfs.sh] script to check that
+everything's fine.
+
+***  Be careful! It might easily reformat your hard disk :) ***
+
+# Get the script
+wget http://vserver.13thfloor.at/Stuff/SCRIPT/testfs.sh
+
+# Make it executable
+chmod +x testfs.sh
+
+# Make a loopback file
+dd bs=1024k count=1024 if=/dev/zero of=1gb.testfile
+
+# Become root
+su
+
+# Setup the loopback
+losetup /dev/loop0 1gb.testfile
+
+# Run the test script for legacy mode
+./testfs.sh -l -t -D /dev/loop0 -M /mnt
+
+# Run the test script for new-style config
+./testfs.sh -t -D /dev/loop0 -M /mnt
+If the script shows any errors, feel free to join us on irc (#vserver @ OFTC)
+or ask on the mailinglist. If you ask on the mailing list, don't forget to
+include your kernel version, the version of the Linux-VServer patch, the
+version of util-vserver and of course the output of the test script.
+
+Permission is granted to copy, distribute and/or modify this document under the
+terms of the GNU Free Documentation License, Version 1.2 or any 
+later version published by the Free Software Foundation.
+
+===============================================================================

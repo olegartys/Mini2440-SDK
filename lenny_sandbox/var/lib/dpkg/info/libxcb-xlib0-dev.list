@@ -1,0 +1,17 @@
+/.
+/usr
+/usr/share
+/usr/share/doc
+/usr/share/doc/libxcb-xlib0-dev
+/usr/share/doc/libxcb-xlib0-dev/copyright
+/usr/share/doc/libxcb-xlib0-dev/changelog.Debian.gz
+/usr/share/doc/libxcb-xlib0-dev/NEWS.gz
+/usr/share/doc/libxcb-xlib0-dev/README
+/usr/include
+/usr/include/xcb
+/usr/include/xcb/xcbxlib.h
+/usr/lib
+/usr/lib/pkgconfig
+/usr/lib/pkgconfig/xcb-xlib.pc
+/usr/lib/libxcb-xlib.a
+/usr/lib/libxcb-xlib.so

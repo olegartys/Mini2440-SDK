@@ -1,0 +1,6 @@
+ec8978d496351ac1340aefccf2af3513  usr/share/doc/x11proto-input-dev/copyright
+0d1500c49a2ae0c506174063ec318bdc  usr/share/doc/x11proto-input-dev/changelog.Debian.gz
+0056dd652e2f31976b9d28ada6bf909d  usr/include/X11/extensions/XI.h
+d1063dfeac6257f316d0f93c4bd76d01  usr/include/X11/extensions/XInput.h
+5f195fa0f0888cd21ddd79f34bf0da20  usr/include/X11/extensions/XIproto.h
+d3dc0f29beb007aecaed6caab3b588c7  usr/lib/pkgconfig/inputproto.pc

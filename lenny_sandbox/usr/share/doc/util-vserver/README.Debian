@@ -1,0 +1,40 @@
+Util-vserver for Debian:
+------------------------
+
+FHS compliance:
+===============
+
+On a default installation of util-vserver vservers are stored in:
+/var/lib/vservers
+
+The reason for this is to comply with Debian policy that enforce the
+directory structure specified by FHS and LSB.
+
+If you need to change that location and use the legacy mode you have to change
+the variable DEFAULT_VSERVERDIR in /etc/vservers/util-vserver-vars to point
+to the directory where you choose to locate your vservers.
+
+If you use the normal mode for vservers you have to change the
+/etc/vservers/.defaults/vdirbase symlink to point to the correct directory.
+You can also change the symlink for each vserver specifically.
+
+SECURITY notice:
+================
+
+If you cannot store all your vservers in the same place in the filesystem,
+do *not* symlink them from the /var/lib/vservers directory, but instead
+redirect the vdir symlink in /etc/vservers/<vserver>/vdir instead. 
+
+
+Filesystem options:
+===================
+
+For reiserfs, "attrs" must be added as a mount option.
+Extended attributes for the filesystem doesn't have to be set in the kernel.
+
+If not you will see this when installing/upgrading:
+
+   lsattr: Inappropriate ioctl for device While reading flags on
+   /var/lib/vservers/
+
+ -- Ola Lundqvist <opal@debian.org>, Fri,  7 Jan 2005 18:20:04 +0100

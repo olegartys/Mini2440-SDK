@@ -1,0 +1,14 @@
+/.
+/usr
+/usr/share
+/usr/share/doc
+/usr/share/doc/libglu1-mesa-dev
+/usr/share/doc/libglu1-mesa-dev/copyright
+/usr/share/doc/libglu1-mesa-dev/changelog.Debian.gz
+/usr/include
+/usr/include/GL
+/usr/include/GL/glu.h
+/usr/include/GL/glu_mangle.h
+/usr/lib
+/usr/lib/libGLU.a
+/usr/lib/libGLU.so

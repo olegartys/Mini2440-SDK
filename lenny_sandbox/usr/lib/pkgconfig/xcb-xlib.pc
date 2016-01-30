@@ -1,0 +1,11 @@
+prefix=/usr
+exec_prefix=${prefix}
+libdir=${exec_prefix}/lib
+includedir=${prefix}/include
+
+Name: XCB Xlib
+Description: XCB Xlib support functions
+Version: 1.1
+Requires: xcb
+Libs: -L${libdir} -lxcb-xlib
+Cflags: -I${includedir}

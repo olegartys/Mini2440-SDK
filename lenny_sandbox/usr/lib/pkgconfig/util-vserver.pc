@@ -1,0 +1,11 @@
+prefix=/usr
+exec_prefix=/usr
+libdir=/usr/lib
+includedir=/usr/include
+
+Name:		util-vserver
+Description:	vserver libraries
+Version:	0.30.216-pre2772
+Requires:
+Libs:		-lvserver
+Cflags:		

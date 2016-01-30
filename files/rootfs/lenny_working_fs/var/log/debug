@@ -1,0 +1,265 @@
+Dec  8 09:45:57 mini2440 kernel: On node 0 totalpages: 16384
+Dec  8 09:45:57 mini2440 kernel: free_area_init_node: node 0, pgdat c04d9144, node_mem_map c0511000
+Dec  8 09:45:57 mini2440 kernel:  Normal zone: 128 pages used for memmap
+Dec  8 09:45:57 mini2440 kernel:  Normal zone: 0 pages reserved
+Dec  8 09:45:57 mini2440 kernel:  Normal zone: 16256 pages, LIFO batch:3
+Dec  8 09:45:57 mini2440 kernel: timer tcon=00500000, tcnt a4ca, tcfg 00000200,00000000, usec 00001e57
+Dec  8 09:45:57 mini2440 kernel: s3c2410fb: devinit
+Dec  8 09:45:58 mini2440 kernel: s3c2410fb: got and enabled clock
+Dec  8 09:45:58 mini2440 kernel: s3c2410fb: map_video_memory(fbi=c388ea50) map_size 155648
+Dec  8 09:45:58 mini2440 kernel: s3c2410fb: map_video_memory: clear ffc00000:00026000
+Dec  8 09:45:58 mini2440 kernel: s3c2410fb: map_video_memory: dma=338c0000 cpu=ffc00000 size=00026000
+Dec  8 09:45:58 mini2440 kernel: s3c2410fb: got video memory
+Dec  8 09:45:58 mini2440 kernel: s3c2410fb: LPCSEL    = 0x00000f82
+Dec  8 09:45:58 mini2440 kernel: s3c2410fb: replacing TPAL 00000000
+Dec  8 09:45:58 mini2440 kernel: s3c2410fb: check_var(var=c388e820, info=c388e800)
+Dec  8 09:45:58 mini2440 kernel: s3c2410fb: pixclk 170000, divisor is 17
+Dec  8 09:45:58 mini2440 kernel: s3c2410fb: s3c2410fb_activate_var: var->xres  = 320
+Dec  8 09:45:58 mini2440 kernel: s3c2410fb: s3c2410fb_activate_var: var->yres  = 240
+Dec  8 09:45:58 mini2440 kernel: s3c2410fb: s3c2410fb_activate_var: var->bpp   = 16
+Dec  8 09:45:58 mini2440 kernel: s3c2410fb: setting vert: up=10, low=2, sync=3
+Dec  8 09:45:58 mini2440 kernel: s3c2410fb: setting horz: lft=13, rt=6, sync=2
+Dec  8 09:45:58 mini2440 kernel: s3c2410fb: new register set:
+Dec  8 09:45:58 mini2440 kernel: s3c2410fb: lcdcon[1] = 0x00000878
+Dec  8 09:45:58 mini2440 kernel: s3c2410fb: lcdcon[2] = 0x093bc042
+Dec  8 09:45:58 mini2440 kernel: s3c2410fb: lcdcon[3] = 0x00293f0c
+Dec  8 09:45:58 mini2440 kernel: s3c2410fb: lcdcon[4] = 0x00000001
+Dec  8 09:45:58 mini2440 kernel: s3c2410fb: lcdcon[5] = 0x00000f01
+Dec  8 09:45:58 mini2440 kernel: s3c2410fb: LCDSADDR1 = 0x19c60000
+Dec  8 09:45:58 mini2440 kernel: s3c2410fb: LCDSADDR2 = 0x19c72c00
+Dec  8 09:45:58 mini2440 kernel: s3c2410fb: LCDSADDR3 = 0x00000140
+Dec  8 09:55:45 mini2440 kernel: On node 0 totalpages: 16384
+Dec  8 09:55:45 mini2440 kernel: free_area_init_node: node 0, pgdat c04d9144, node_mem_map c0511000
+Dec  8 09:55:45 mini2440 kernel:  Normal zone: 128 pages used for memmap
+Dec  8 09:55:45 mini2440 kernel:  Normal zone: 0 pages reserved
+Dec  8 09:55:45 mini2440 kernel:  Normal zone: 16256 pages, LIFO batch:3
+Dec  8 09:55:45 mini2440 kernel: timer tcon=00500000, tcnt a4ca, tcfg 00000200,00000000, usec 00001e57
+Dec  8 09:55:45 mini2440 kernel: s3c2410fb: devinit
+Dec  8 09:55:45 mini2440 kernel: s3c2410fb: got and enabled clock
+Dec  8 09:55:45 mini2440 kernel: s3c2410fb: map_video_memory(fbi=c388ea50) map_size 155648
+Dec  8 09:55:45 mini2440 kernel: s3c2410fb: map_video_memory: clear ffc00000:00026000
+Dec  8 09:55:45 mini2440 kernel: s3c2410fb: map_video_memory: dma=338c0000 cpu=ffc00000 size=00026000
+Dec  8 09:55:45 mini2440 kernel: s3c2410fb: got video memory
+Dec  8 09:55:45 mini2440 kernel: s3c2410fb: LPCSEL    = 0x00000f82
+Dec  8 09:55:45 mini2440 kernel: s3c2410fb: replacing TPAL 00000000
+Dec  8 09:55:45 mini2440 kernel: s3c2410fb: check_var(var=c388e820, info=c388e800)
+Dec  8 09:55:45 mini2440 kernel: s3c2410fb: pixclk 170000, divisor is 17
+Dec  8 09:55:45 mini2440 kernel: s3c2410fb: s3c2410fb_activate_var: var->xres  = 320
+Dec  8 09:55:45 mini2440 kernel: s3c2410fb: s3c2410fb_activate_var: var->yres  = 240
+Dec  8 09:55:45 mini2440 kernel: s3c2410fb: s3c2410fb_activate_var: var->bpp   = 16
+Dec  8 09:55:45 mini2440 kernel: s3c2410fb: setting vert: up=10, low=2, sync=3
+Dec  8 09:55:45 mini2440 kernel: s3c2410fb: setting horz: lft=13, rt=6, sync=2
+Dec  8 09:55:45 mini2440 kernel: s3c2410fb: new register set:
+Dec  8 09:55:45 mini2440 kernel: s3c2410fb: lcdcon[1] = 0x00000878
+Dec  8 09:55:45 mini2440 kernel: s3c2410fb: lcdcon[2] = 0x093bc042
+Dec  8 09:55:45 mini2440 kernel: s3c2410fb: lcdcon[3] = 0x00293f0c
+Dec  8 09:55:45 mini2440 kernel: s3c2410fb: lcdcon[4] = 0x00000001
+Dec  8 09:55:45 mini2440 kernel: s3c2410fb: lcdcon[5] = 0x00000f01
+Dec  8 09:55:45 mini2440 kernel: s3c2410fb: LCDSADDR1 = 0x19c60000
+Dec  8 09:55:45 mini2440 kernel: s3c2410fb: LCDSADDR2 = 0x19c72c00
+Dec  8 09:55:45 mini2440 kernel: s3c2410fb: LCDSADDR3 = 0x00000140
+Jan  8 09:12:58 mini2440 kernel: On node 0 totalpages: 16384
+Jan  8 09:12:58 mini2440 kernel: free_area_init_node: node 0, pgdat c04d9144, node_mem_map c0511000
+Jan  8 09:12:58 mini2440 kernel:  Normal zone: 128 pages used for memmap
+Jan  8 09:12:58 mini2440 kernel:  Normal zone: 0 pages reserved
+Jan  8 09:12:58 mini2440 kernel:  Normal zone: 16256 pages, LIFO batch:3
+Jan  8 09:12:58 mini2440 kernel: timer tcon=00500000, tcnt a4ca, tcfg 00000200,00000000, usec 00001e57
+Jan  8 09:12:58 mini2440 kernel: s3c2410fb: devinit
+Jan  8 09:12:58 mini2440 kernel: s3c2410fb: got and enabled clock
+Jan  8 09:12:58 mini2440 kernel: s3c2410fb: map_video_memory(fbi=c386ea50) map_size 155648
+Jan  8 09:12:58 mini2440 kernel: s3c2410fb: map_video_memory: clear ffc00000:00026000
+Jan  8 09:12:58 mini2440 kernel: s3c2410fb: map_video_memory: dma=33900000 cpu=ffc00000 size=00026000
+Jan  8 09:12:58 mini2440 kernel: s3c2410fb: got video memory
+Jan  8 09:12:58 mini2440 kernel: s3c2410fb: LPCSEL    = 0x00000f82
+Jan  8 09:12:58 mini2440 kernel: s3c2410fb: replacing TPAL 00000000
+Jan  8 09:12:58 mini2440 kernel: s3c2410fb: check_var(var=c386e820, info=c386e800)
+Jan  8 09:12:58 mini2440 kernel: s3c2410fb: pixclk 170000, divisor is 17
+Jan  8 09:12:58 mini2440 kernel: s3c2410fb: s3c2410fb_activate_var: var->xres  = 320
+Jan  8 09:12:58 mini2440 kernel: s3c2410fb: s3c2410fb_activate_var: var->yres  = 240
+Jan  8 09:12:58 mini2440 kernel: s3c2410fb: s3c2410fb_activate_var: var->bpp   = 16
+Jan  8 09:12:58 mini2440 kernel: s3c2410fb: setting vert: up=10, low=2, sync=3
+Jan  8 09:12:58 mini2440 kernel: s3c2410fb: setting horz: lft=13, rt=6, sync=2
+Jan  8 09:12:58 mini2440 kernel: s3c2410fb: new register set:
+Jan  8 09:12:58 mini2440 kernel: s3c2410fb: lcdcon[1] = 0x00000878
+Jan  8 09:12:58 mini2440 kernel: s3c2410fb: lcdcon[2] = 0x093bc042
+Jan  8 09:12:58 mini2440 kernel: s3c2410fb: lcdcon[3] = 0x00293f0c
+Jan  8 09:12:58 mini2440 kernel: s3c2410fb: lcdcon[4] = 0x00000001
+Jan  8 09:12:58 mini2440 kernel: s3c2410fb: lcdcon[5] = 0x00000f01
+Jan  8 09:12:58 mini2440 kernel: s3c2410fb: LCDSADDR1 = 0x19c80000
+Jan  8 09:12:58 mini2440 kernel: s3c2410fb: LCDSADDR2 = 0x19c92c00
+Jan  8 09:12:58 mini2440 kernel: s3c2410fb: LCDSADDR3 = 0x00000140
+Jan  8 09:25:56 mini2440 kernel: On node 0 totalpages: 16384
+Jan  8 09:25:56 mini2440 kernel: free_area_init_node: node 0, pgdat c04d9144, node_mem_map c0511000
+Jan  8 09:25:56 mini2440 kernel:  Normal zone: 128 pages used for memmap
+Jan  8 09:25:56 mini2440 kernel:  Normal zone: 0 pages reserved
+Jan  8 09:25:56 mini2440 kernel:  Normal zone: 16256 pages, LIFO batch:3
+Jan  8 09:25:56 mini2440 kernel: timer tcon=00500000, tcnt a4ca, tcfg 00000200,00000000, usec 00001e57
+Jan  8 09:25:56 mini2440 kernel: s3c2410fb: devinit
+Jan  8 09:25:56 mini2440 kernel: s3c2410fb: got and enabled clock
+Jan  8 09:25:56 mini2440 kernel: s3c2410fb: map_video_memory(fbi=c388ea50) map_size 155648
+Jan  8 09:25:56 mini2440 kernel: s3c2410fb: map_video_memory: clear ffc00000:00026000
+Jan  8 09:25:56 mini2440 kernel: s3c2410fb: map_video_memory: dma=33900000 cpu=ffc00000 size=00026000
+Jan  8 09:25:56 mini2440 kernel: s3c2410fb: got video memory
+Jan  8 09:25:56 mini2440 kernel: s3c2410fb: LPCSEL    = 0x00000f82
+Jan  8 09:25:56 mini2440 kernel: s3c2410fb: replacing TPAL 00000000
+Jan  8 09:25:56 mini2440 kernel: s3c2410fb: check_var(var=c388e820, info=c388e800)
+Jan  8 09:25:56 mini2440 kernel: s3c2410fb: pixclk 170000, divisor is 17
+Jan  8 09:25:56 mini2440 kernel: s3c2410fb: s3c2410fb_activate_var: var->xres  = 320
+Jan  8 09:25:56 mini2440 kernel: s3c2410fb: s3c2410fb_activate_var: var->yres  = 240
+Jan  8 09:25:56 mini2440 kernel: s3c2410fb: s3c2410fb_activate_var: var->bpp   = 16
+Jan  8 09:25:56 mini2440 kernel: s3c2410fb: setting vert: up=10, low=2, sync=3
+Jan  8 09:25:56 mini2440 kernel: s3c2410fb: setting horz: lft=13, rt=6, sync=2
+Jan  8 09:25:56 mini2440 kernel: s3c2410fb: new register set:
+Jan  8 09:25:56 mini2440 kernel: s3c2410fb: lcdcon[1] = 0x00000878
+Jan  8 09:25:56 mini2440 kernel: s3c2410fb: lcdcon[2] = 0x093bc042
+Jan  8 09:25:56 mini2440 kernel: s3c2410fb: lcdcon[3] = 0x00293f0c
+Jan  8 09:25:56 mini2440 kernel: s3c2410fb: lcdcon[4] = 0x00000001
+Jan  8 09:25:56 mini2440 kernel: s3c2410fb: lcdcon[5] = 0x00000f01
+Jan  8 09:25:56 mini2440 kernel: s3c2410fb: LCDSADDR1 = 0x19c80000
+Jan  8 09:25:56 mini2440 kernel: s3c2410fb: LCDSADDR2 = 0x19c92c00
+Jan  8 09:25:56 mini2440 kernel: s3c2410fb: LCDSADDR3 = 0x00000140
+Jan  8 09:36:32 mini2440 kernel: s3c2410fb: blank(mode=1, info=c388e800)
+Jan  8 09:36:32 mini2440 kernel: s3c2410fb: setting TPAL to output 0x000000
+Jan  8 09:42:31 mini2440 kernel: s3c2410fb: blank(mode=0, info=c388e800)
+Jan  8 09:59:12 mini2440 kernel: On node 0 totalpages: 16384
+Jan  8 09:59:12 mini2440 kernel: free_area_init_node: node 0, pgdat c04d9144, node_mem_map c0511000
+Jan  8 09:59:12 mini2440 kernel:  Normal zone: 128 pages used for memmap
+Jan  8 09:59:12 mini2440 kernel:  Normal zone: 0 pages reserved
+Jan  8 09:59:12 mini2440 kernel:  Normal zone: 16256 pages, LIFO batch:3
+Jan  8 09:59:12 mini2440 kernel: timer tcon=00500000, tcnt a4ca, tcfg 00000200,00000000, usec 00001e57
+Jan  8 09:59:12 mini2440 kernel: s3c2410fb: devinit
+Jan  8 09:59:12 mini2440 kernel: s3c2410fb: got and enabled clock
+Jan  8 09:59:12 mini2440 kernel: s3c2410fb: map_video_memory(fbi=c388aa50) map_size 155648
+Jan  8 09:59:12 mini2440 kernel: s3c2410fb: map_video_memory: clear ffc00000:00026000
+Jan  8 09:59:12 mini2440 kernel: s3c2410fb: map_video_memory: dma=338c0000 cpu=ffc00000 size=00026000
+Jan  8 09:59:12 mini2440 kernel: s3c2410fb: got video memory
+Jan  8 09:59:12 mini2440 kernel: s3c2410fb: LPCSEL    = 0x00000f82
+Jan  8 09:59:12 mini2440 kernel: s3c2410fb: replacing TPAL 00000000
+Jan  8 09:59:12 mini2440 kernel: s3c2410fb: check_var(var=c388a820, info=c388a800)
+Jan  8 09:59:12 mini2440 kernel: s3c2410fb: pixclk 170000, divisor is 17
+Jan  8 09:59:12 mini2440 kernel: s3c2410fb: s3c2410fb_activate_var: var->xres  = 320
+Jan  8 09:59:12 mini2440 kernel: s3c2410fb: s3c2410fb_activate_var: var->yres  = 240
+Jan  8 09:59:12 mini2440 kernel: s3c2410fb: s3c2410fb_activate_var: var->bpp   = 16
+Jan  8 09:59:12 mini2440 kernel: s3c2410fb: setting vert: up=10, low=2, sync=3
+Jan  8 09:59:12 mini2440 kernel: s3c2410fb: setting horz: lft=13, rt=6, sync=2
+Jan  8 09:59:12 mini2440 kernel: s3c2410fb: new register set:
+Jan  8 09:59:12 mini2440 kernel: s3c2410fb: lcdcon[1] = 0x00000878
+Jan  8 09:59:12 mini2440 kernel: s3c2410fb: lcdcon[2] = 0x093bc042
+Jan  8 09:59:12 mini2440 kernel: s3c2410fb: lcdcon[3] = 0x00293f0c
+Jan  8 09:59:12 mini2440 kernel: s3c2410fb: lcdcon[4] = 0x00000001
+Jan  8 09:59:12 mini2440 kernel: s3c2410fb: lcdcon[5] = 0x00000f01
+Jan  8 09:59:12 mini2440 kernel: s3c2410fb: LCDSADDR1 = 0x19c60000
+Jan  8 09:59:12 mini2440 kernel: s3c2410fb: LCDSADDR2 = 0x19c72c00
+Jan  8 09:59:12 mini2440 kernel: s3c2410fb: LCDSADDR3 = 0x00000140
+Jan  8 10:06:32 mini2440 kernel: On node 0 totalpages: 16384
+Jan  8 10:06:32 mini2440 kernel: free_area_init_node: node 0, pgdat c04d9144, node_mem_map c0511000
+Jan  8 10:06:32 mini2440 kernel:  Normal zone: 128 pages used for memmap
+Jan  8 10:06:32 mini2440 kernel:  Normal zone: 0 pages reserved
+Jan  8 10:06:32 mini2440 kernel:  Normal zone: 16256 pages, LIFO batch:3
+Jan  8 10:06:32 mini2440 kernel: timer tcon=00500000, tcnt a4ca, tcfg 00000200,00000000, usec 00001e57
+Jan  8 10:06:32 mini2440 kernel: s3c2410fb: devinit
+Jan  8 10:06:32 mini2440 kernel: s3c2410fb: got and enabled clock
+Jan  8 10:06:32 mini2440 kernel: s3c2410fb: map_video_memory(fbi=c384ea50) map_size 155648
+Jan  8 10:06:32 mini2440 kernel: s3c2410fb: map_video_memory: clear ffc00000:00026000
+Jan  8 10:06:32 mini2440 kernel: s3c2410fb: map_video_memory: dma=33900000 cpu=ffc00000 size=00026000
+Jan  8 10:06:32 mini2440 kernel: s3c2410fb: got video memory
+Jan  8 10:06:32 mini2440 kernel: s3c2410fb: LPCSEL    = 0x00000f82
+Jan  8 10:06:32 mini2440 kernel: s3c2410fb: replacing TPAL 00000000
+Jan  8 10:06:32 mini2440 kernel: s3c2410fb: check_var(var=c384e820, info=c384e800)
+Jan  8 10:06:32 mini2440 kernel: s3c2410fb: pixclk 170000, divisor is 17
+Jan  8 10:06:32 mini2440 kernel: s3c2410fb: s3c2410fb_activate_var: var->xres  = 320
+Jan  8 10:06:32 mini2440 kernel: s3c2410fb: s3c2410fb_activate_var: var->yres  = 240
+Jan  8 10:06:32 mini2440 kernel: s3c2410fb: s3c2410fb_activate_var: var->bpp   = 16
+Jan  8 10:06:32 mini2440 kernel: s3c2410fb: setting vert: up=10, low=2, sync=3
+Jan  8 10:06:32 mini2440 kernel: s3c2410fb: setting horz: lft=13, rt=6, sync=2
+Jan  8 10:06:32 mini2440 kernel: s3c2410fb: new register set:
+Jan  8 10:06:32 mini2440 kernel: s3c2410fb: lcdcon[1] = 0x00000878
+Jan  8 10:06:32 mini2440 kernel: s3c2410fb: lcdcon[2] = 0x093bc042
+Jan  8 10:06:32 mini2440 kernel: s3c2410fb: lcdcon[3] = 0x00293f0c
+Jan  8 10:06:32 mini2440 kernel: s3c2410fb: lcdcon[4] = 0x00000001
+Jan  8 10:06:32 mini2440 kernel: s3c2410fb: lcdcon[5] = 0x00000f01
+Jan  8 10:06:32 mini2440 kernel: s3c2410fb: LCDSADDR1 = 0x19c80000
+Jan  8 10:06:32 mini2440 kernel: s3c2410fb: LCDSADDR2 = 0x19c92c00
+Jan  8 10:06:32 mini2440 kernel: s3c2410fb: LCDSADDR3 = 0x00000140
+Jan  8 10:16:54 mini2440 kernel: s3c2410fb: blank(mode=1, info=c384e800)
+Jan  8 10:16:54 mini2440 kernel: s3c2410fb: setting TPAL to output 0x000000
+Jan  8 10:39:34 mini2440 kernel: On node 0 totalpages: 16384
+Jan  8 10:39:34 mini2440 kernel: free_area_init_node: node 0, pgdat c04d9144, node_mem_map c0511000
+Jan  8 10:39:34 mini2440 kernel:  Normal zone: 128 pages used for memmap
+Jan  8 10:39:34 mini2440 kernel:  Normal zone: 0 pages reserved
+Jan  8 10:39:34 mini2440 kernel:  Normal zone: 16256 pages, LIFO batch:3
+Jan  8 10:39:34 mini2440 kernel: timer tcon=00500000, tcnt a4ca, tcfg 00000200,00000000, usec 00001e57
+Jan  8 10:39:34 mini2440 kernel: s3c2410fb: devinit
+Jan  8 10:39:34 mini2440 kernel: s3c2410fb: got and enabled clock
+Jan  8 10:39:34 mini2440 kernel: s3c2410fb: map_video_memory(fbi=c3872a50) map_size 155648
+Jan  8 10:39:34 mini2440 kernel: s3c2410fb: map_video_memory: clear ffc00000:00026000
+Jan  8 10:39:34 mini2440 kernel: s3c2410fb: map_video_memory: dma=33900000 cpu=ffc00000 size=00026000
+Jan  8 10:39:34 mini2440 kernel: s3c2410fb: got video memory
+Jan  8 10:39:34 mini2440 kernel: s3c2410fb: LPCSEL    = 0x00000f82
+Jan  8 10:39:34 mini2440 kernel: s3c2410fb: replacing TPAL 00000000
+Jan  8 10:39:34 mini2440 kernel: s3c2410fb: check_var(var=c3872820, info=c3872800)
+Jan  8 10:39:34 mini2440 kernel: s3c2410fb: pixclk 170000, divisor is 17
+Jan  8 10:39:34 mini2440 kernel: s3c2410fb: s3c2410fb_activate_var: var->xres  = 320
+Jan  8 10:39:34 mini2440 kernel: s3c2410fb: s3c2410fb_activate_var: var->yres  = 240
+Jan  8 10:39:34 mini2440 kernel: s3c2410fb: s3c2410fb_activate_var: var->bpp   = 16
+Jan  8 10:39:34 mini2440 kernel: s3c2410fb: setting vert: up=10, low=2, sync=3
+Jan  8 10:39:34 mini2440 kernel: s3c2410fb: setting horz: lft=13, rt=6, sync=2
+Jan  8 10:39:34 mini2440 kernel: s3c2410fb: new register set:
+Jan  8 10:39:34 mini2440 kernel: s3c2410fb: lcdcon[1] = 0x00000878
+Jan  8 10:39:34 mini2440 kernel: s3c2410fb: lcdcon[2] = 0x093bc042
+Jan  8 10:39:34 mini2440 kernel: s3c2410fb: lcdcon[3] = 0x00293f0c
+Jan  8 10:39:34 mini2440 kernel: s3c2410fb: lcdcon[4] = 0x00000001
+Jan  8 10:39:34 mini2440 kernel: s3c2410fb: lcdcon[5] = 0x00000f01
+Jan  8 10:39:34 mini2440 kernel: s3c2410fb: LCDSADDR1 = 0x19c80000
+Jan  8 10:39:34 mini2440 kernel: s3c2410fb: LCDSADDR2 = 0x19c92c00
+Jan  8 10:39:34 mini2440 kernel: s3c2410fb: LCDSADDR3 = 0x00000140
+Jan  8 10:52:07 mini2440 kernel: s3c2410fb: blank(mode=1, info=c3872800)
+Jan  8 10:52:07 mini2440 kernel: s3c2410fb: setting TPAL to output 0x000000
+Jan  8 14:11:41 mini2440 kernel: On node 0 totalpages: 16384
+Jan  8 14:11:41 mini2440 kernel: free_area_init_node: node 0, pgdat c0485494, node_mem_map c04bd000
+Jan  8 14:11:41 mini2440 kernel:  Normal zone: 128 pages used for memmap
+Jan  8 14:11:41 mini2440 kernel:  Normal zone: 0 pages reserved
+Jan  8 14:11:41 mini2440 kernel:  Normal zone: 16256 pages, LIFO batch:3
+Jan  8 14:11:41 mini2440 kernel: timer tcon=00500000, tcnt a4ca, tcfg 00000200,00000000, usec 00001e57
+Jan  8 14:42:51 mini2440 kernel: On node 0 totalpages: 16384
+Jan  8 14:42:51 mini2440 kernel: free_area_init_node: node 0, pgdat c0485484, node_mem_map c04bd000
+Jan  8 14:42:51 mini2440 kernel:  Normal zone: 128 pages used for memmap
+Jan  8 14:42:51 mini2440 kernel:  Normal zone: 0 pages reserved
+Jan  8 14:42:51 mini2440 kernel:  Normal zone: 16256 pages, LIFO batch:3
+Jan  8 14:42:51 mini2440 kernel: timer tcon=00500000, tcnt a4ca, tcfg 00000200,00000000, usec 00001e57
+Jan  8 14:42:51 mini2440 kernel: s3c2410fb: devinit
+Jan  8 14:42:51 mini2440 kernel: s3c2410fb: got and enabled clock
+Jan  8 14:42:51 mini2440 kernel: s3c2410fb: map_video_memory(fbi=c3896a50) map_size 155648
+Jan  8 14:42:51 mini2440 kernel: s3c2410fb: map_video_memory: clear ffc00000:00026000
+Jan  8 14:42:51 mini2440 kernel: s3c2410fb: map_video_memory: dma=338c0000 cpu=ffc00000 size=00026000
+Jan  8 14:42:51 mini2440 kernel: s3c2410fb: got video memory
+Jan  8 14:42:51 mini2440 kernel: s3c2410fb: LPCSEL    = 0x00000f82
+Jan  8 14:42:51 mini2440 kernel: s3c2410fb: replacing TPAL 00000000
+Jan  8 14:42:51 mini2440 kernel: s3c2410fb: check_var(var=c3896820, info=c3896800)
+Jan  8 14:42:51 mini2440 kernel: s3c2410fb: pixclk 170000, divisor is 17
+Jan  8 14:42:51 mini2440 kernel: s3c2410fb: s3c2410fb_activate_var: var->xres  = 320
+Jan  8 14:42:51 mini2440 kernel: s3c2410fb: s3c2410fb_activate_var: var->yres  = 240
+Jan  8 14:42:51 mini2440 kernel: s3c2410fb: s3c2410fb_activate_var: var->bpp   = 16
+Jan  8 14:42:51 mini2440 kernel: s3c2410fb: setting vert: up=10, low=2, sync=3
+Jan  8 14:42:51 mini2440 kernel: s3c2410fb: setting horz: lft=13, rt=6, sync=2
+Jan  8 14:42:51 mini2440 kernel: s3c2410fb: new register set:
+Jan  8 14:42:51 mini2440 kernel: s3c2410fb: lcdcon[1] = 0x00000878
+Jan  8 14:42:51 mini2440 kernel: s3c2410fb: lcdcon[2] = 0x093bc042
+Jan  8 14:42:51 mini2440 kernel: s3c2410fb: lcdcon[3] = 0x00293f0c
+Jan  8 14:42:51 mini2440 kernel: s3c2410fb: lcdcon[4] = 0x00000001
+Jan  8 14:42:51 mini2440 kernel: s3c2410fb: lcdcon[5] = 0x00000f01
+Jan  8 14:42:51 mini2440 kernel: s3c2410fb: LCDSADDR1 = 0x19c60000
+Jan  8 14:42:51 mini2440 kernel: s3c2410fb: LCDSADDR2 = 0x19c72c00
+Jan  8 14:42:51 mini2440 kernel: s3c2410fb: LCDSADDR3 = 0x00000140
+Jan  8 14:57:15 mini2440 kernel: s3c2410fb: blank(mode=1, info=c3896800)
+Jan  8 14:57:15 mini2440 kernel: s3c2410fb: setting TPAL to output 0x000000
+Jan  8 15:08:43 mini2440 kernel: s3c2410fb: blank(mode=0, info=c3896800)
+Jan  8 15:20:34 mini2440 kernel: s3c2410fb: blank(mode=1, info=c3896800)
+Jan  8 15:20:34 mini2440 kernel: s3c2410fb: setting TPAL to output 0x000000
+Jan  8 15:26:06 mini2440 kernel: s3c2410fb: blank(mode=0, info=c3896800)
+Jan  8 15:36:29 mini2440 kernel: s3c2410fb: blank(mode=1, info=c3896800)
+Jan  8 15:36:29 mini2440 kernel: s3c2410fb: setting TPAL to output 0x000000
+Jan  8 16:16:12 mini2440 kernel: s3c2410fb: blank(mode=0, info=c3896800)
+Jan  8 16:26:57 mini2440 kernel: s3c2410fb: blank(mode=1, info=c3896800)
+Jan  8 16:26:57 mini2440 kernel: s3c2410fb: setting TPAL to output 0x000000
+Jan  8 16:53:39 mini2440 kernel: s3c2410fb: blank(mode=0, info=c3896800)

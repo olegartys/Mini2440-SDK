@@ -1,0 +1,11 @@
+898339c526e44e5e60c5ff2ff367fe84  usr/share/doc/libice-dev/copyright
+e8f9028fc634c09925fb652cbfa6b0f5  usr/share/doc/libice-dev/changelog.gz
+c7dd2508e9687804fd5edae51f5a5e7b  usr/share/doc/libice-dev/changelog.Debian.gz
+e473081adb6ee6b71ce93ce050e71602  usr/include/X11/ICE/ICE.h
+ee740a54c6cdaa4c8e50e218df44e0e4  usr/include/X11/ICE/ICEconn.h
+3b94c2f642fa9e0300f35e54dfc0710d  usr/include/X11/ICE/ICElib.h
+bbd566206a2ffff005fb71b1d7564304  usr/include/X11/ICE/ICEmsg.h
+3ce8761e2d15c0e649babb5339365cea  usr/include/X11/ICE/ICEproto.h
+04ae29b47d7f9b52a3ec857e786e304f  usr/include/X11/ICE/ICEutil.h
+9fc8a61fd7611c7530c55a52795932bc  usr/lib/libICE.a
+a1e48c559e8ff0c25117a3543ab1294a  usr/lib/pkgconfig/ice.pc

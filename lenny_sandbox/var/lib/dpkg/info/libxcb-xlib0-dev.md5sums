@@ -1,0 +1,7 @@
+360fadb0d222af6607a189d435e3a9f3  usr/share/doc/libxcb-xlib0-dev/copyright
+c7227f2552ab5edbc88b27840b16158d  usr/share/doc/libxcb-xlib0-dev/changelog.Debian.gz
+b5c50eaf2a46f43c5d93db1a5994f72a  usr/share/doc/libxcb-xlib0-dev/NEWS.gz
+b9c8eb875b83cd2b3790bdd47c202165  usr/share/doc/libxcb-xlib0-dev/README
+bd3e9c89072c58fa094fc5b7a9ea80f4  usr/include/xcb/xcbxlib.h
+863a4ef18b3c795249c3508595aab565  usr/lib/pkgconfig/xcb-xlib.pc
+f9a1568aff992f474a56d0e125246ddd  usr/lib/libxcb-xlib.a

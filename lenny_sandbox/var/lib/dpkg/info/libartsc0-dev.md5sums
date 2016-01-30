@@ -1,0 +1,8 @@
+5ac4cdf435b80ae0858e0eab9a9f5363  usr/lib/libartsc.a
+e273caa7fc43000b3cdaded74e8f460f  usr/lib/libartsc.la
+f4bdf9d5d966824d22ac742e61f6c2c4  usr/bin/artsc-config
+f885c08f1779db2ce8f63b7a8ee60aa2  usr/include/kde/artsc/artsc_export.h
+95e10658935c02fa736da491528e80e5  usr/include/kde/artsc/artsc.h
+87acd434ba33723f801daae511e76b1d  usr/share/doc/libartsc0-dev/copyright
+653674ec9305e744853c9e1a6c8e3db5  usr/share/doc/libartsc0-dev/changelog.Debian.gz
+25f6f816157079a83b41e4a1d1d510e4  usr/share/man/man1/artsc-config.1.gz

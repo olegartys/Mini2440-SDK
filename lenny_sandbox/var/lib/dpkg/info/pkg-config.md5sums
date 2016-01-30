@@ -1,0 +1,9 @@
+fb1bdd4acefd60b661cec4927d4212b4  usr/share/aclocal/pkg.m4
+9207f8312c473bd1315189ca1562178d  usr/share/man/man1/pkg-config.1.gz
+289b96d255e2d0a74d1f6746634cb340  usr/share/doc/pkg-config/README
+8ff6019ef7d4da20c4e9f6be484b272a  usr/share/doc/pkg-config/AUTHORS
+17945a01b1007e78511e2a10f3a0d884  usr/share/doc/pkg-config/copyright
+dd29720fae8daaa752f1030e44e3e209  usr/share/doc/pkg-config/changelog.gz
+88a6892993c17df6b42185b22c176116  usr/share/doc/pkg-config/NEWS.gz
+d4c942fa95314aa1feb0c2f59f7cbb64  usr/share/doc/pkg-config/changelog.Debian.gz
+1c2de2eb0d370e521afe233833aa5e62  usr/bin/pkg-config

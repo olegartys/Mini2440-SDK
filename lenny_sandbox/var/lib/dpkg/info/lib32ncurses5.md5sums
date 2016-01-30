@@ -1,0 +1,8 @@
+a0d7a336fd7b481d10a8cdade8c4187e  emul/ia32-linux/usr/lib/libpanel.so.5.7
+aa810b7e079cfd12d5e808b7a9467137  emul/ia32-linux/usr/lib/libform.so.5.7
+63f4cd5e9a4c708cb8bdbda3f4ad0afc  emul/ia32-linux/usr/lib/libmenu.so.5.7
+cc89adf274426d4d78643d9187146d8c  emul/ia32-linux/lib/libncurses.so.5.7
+ba1786092aaf32192ea2b8b7c3f873db  emul/ia32-linux/lib/libtic.so.5.7
+443d1c1fc336abdd9dc344e4b08475c9  usr/share/doc/lib32ncurses5/copyright
+00cccebb5242ced734ce91083e112f43  usr/share/doc/lib32ncurses5/changelog.Debian.gz
+a441f537b20e0260e30961a128d60fd5  usr/share/doc/lib32ncurses5/changelog.gz

@@ -1,0 +1,16 @@
+lease {
+  interface "eth0";
+  fixed-address 172.18.181.40;
+  option subnet-mask 255.255.255.0;
+  option dhcp-lease-time 43200;
+  option routers 172.18.181.1;
+  option dhcp-message-type 5;
+  option dhcp-server-identifier 192.168.0.25;
+  option domain-name-servers 192.168.0.13,192.168.200.53;
+  option dhcp-renewal-time 21600;
+  option dhcp-rebinding-time 37800;
+  option domain-name "staff.corp.local";
+  renew 6 2035/12/08 14:43:16;
+  rebind 6 2035/12/08 20:25:38;
+  expire 6 2035/12/08 21:55:38;
+}

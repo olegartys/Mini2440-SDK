@@ -1,0 +1,12 @@
+prefix=/usr
+exec_prefix=${prefix}
+libdir=${exec_prefix}/lib
+includedir=${prefix}/include
+
+Name: cucul
+Description: Canvas for ultrafast compositing of Unicode letters
+Version: 0.99.beta14
+Requires: 
+Conflicts: 
+Libs: -L${libdir} -lcucul
+Cflags: -I${includedir}

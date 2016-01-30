@@ -1,0 +1,7 @@
+127.0.0.1:/srv/nfs:0x00000001
+192.168.42.1:/root/rootfs/rootfs_qtopia_qt4:0x00000002
+127.0.0.1:/root/rootfs/rootfs_qtopia_qt4:0x00000005
+192.168.42.2:/root/rootfs/rootfs_qtopia_qt4:0x00000010
+192.168.42.1:/tmp:0x00000001
+192.168.42.1:/srv:0x0000000c
+127.0.0.1:/srv:0x00000001

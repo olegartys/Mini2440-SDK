@@ -1,0 +1,11 @@
+/.
+/emul
+/emul/ia32-linux
+/emul/ia32-linux/usr
+/emul/ia32-linux/usr/lib
+/emul/ia32-linux/usr/lib/libasound.so.2.0.0
+/usr
+/usr/share
+/usr/share/doc
+/emul/ia32-linux/usr/lib/libasound.so.2
+/usr/share/doc/lib32asound2

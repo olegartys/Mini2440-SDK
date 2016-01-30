@@ -1,0 +1,941 @@
+#!/bin/bash
+#
+# xchroot v2.3.3
+# (c) copyright by Elmar Stellnberger, the original author: 2009, Jan 2010, Jan 2013, Aug 2013, Oct 2013
+#
+#  further information: www.elstel.org/com; look here for an actual contact address
+#  current email: estellnb@elstel.org; additional email estellnb@gmail.com
+#
+# v.2.3.3: enhanced user management, license (09.11.2013)
+#  * chrooting from one user to an other is now possible
+#   * resolved security issue when users of chroot environment and outside of it have different privileges 
+#   - idea for using getent rather than grep-ing /etc/passwd was contributed by Nick Bannon on 2013-11-08 <nick@rcpt.to> 
+#  * cd to home directory on startup
+#
+# v.2.3.2: security + docs, license (27.10.2013)
+#  * addressed several security issues for using xchroot with /etc/sudoers, doc-update, more clear license
+#  * job control fix for newer systems (does no more get disabled when chrooting from new to old system)
+#
+# v.2.3.1: aufs and unionfs support (23.10.2013)
+# * updated, more distributor friendly license (now allows you to distributed modified versions of xchroot)
+# * warn correctly if no X connection can be established; including the XCONNECT=noX environment variable to disable these warning
+# * export XAUTHORITY also for remote hosts
+#
+# v.2.3: aufs and unionfs support (28.8.2013)
+# * aufs and unionfs support
+#  * saving, restoring and augmenting .squashfs images for use with aufs and unionfs
+# * noask-option for automatic xchroot invocation; does not ask on kill (if signal causes xchroot to exit)
+# * recursive xchroot; XAUTHORITY envvar inheritance error resolved ( now just using last directory name as identifier; also possible: use ':' instead of '\\')
+# * various minor issues: improved cleanup, socat check; check if it will chroot to a valid root-fs, precise return values (0-255)
+# * better, prospectively oss-compliant license
+#
+# v.2.25 bugfixes over v.2.2 (18.8.2013)
+# * su -c did loose XAUTHORITY environment variable on elder Linux distros (necessary X access)
+# * open same root several times: only ask to terminate running programs on last exit
+# * use SHELL from /etc/passwd or as given by --shell: different shells than bash
+# * trivial error fix: $root was hardcoded in v2.2 when asking to terminate programs still running in root
+# * some minor corrections when using "cleanup" after having left everything mounted
+#
+
+license() {
+  cat <<EOQ
+ Scripting Free Software License, Version 1.3.7.2 (S-FSL v1.3.7.2) as provided by elstel.org/license
+
+1. This program may be used free of charge. It has been designed as research work and comes without claim for fitness to any particular usage purpose and completely without warranty or any kind of liability such as lost revenues, profits, harm or damage of any kind.
+
+2. The program may be distributed by a third party given that the program is distributed in its original state completely without any kind of modifications or patches. If you need to re-distribute a patched of this program you need to distribute the patches separately from the original so that the pristine version can be restored at any time. Note that the distribution of a derivative plus reverse applicable patches will be deemed equivalent to the distribution of a pristine version plus forward applicable patches. No patches that could be shipped use to exist for automatic derivation processes like f.i. the compilation of sources. By applying automatic derivations you consent that you will provide all makefiles or any other additional input which is required for the derivation process to the original authors under the same licensing and same terms as patches. An OSS-tool to achieve these derivations must be available for free to the public. It needs to yield functionally equivalent results as the binaries you distribute and work with the input files you have shipped. We suggest you to ship binaries and sources in different packages.
+
+3. Modifications applied to this program may not affect the name, original version, copyright, license or any reference given to the authors such as their email addresses or their web presence and/or page in any part of the program or any files attached to the program apart from updates to these references made by the respective authors themselves. You as a distributor need to let your contributors add their names, their email and modifications with date to the changelog. You may use the upstream changelog if present or your own one as long as it stays accessible upstreams. Any derived work must carry the name of the distributor, vendor or the product in its name (or a unique shorthand for it) directly preceded by the original unchanged final upstream name of the software and its version at the beginning. For automatic derivations a tag concerning the derivation process or its output like f.i. the machine architecture would be appropriate. You must not charge for the programs under S-FSL themselves but you may require a reasonable charge for the physical reproduction of the data.
+
+4. You may only extend or modify this program given that you do also consent with the following terms. As far as you are not a public distributor you are obliged to send a copy of your patches to the original authors referred to herein as the authors of the first version of the program as being listed in the changelog or program header whenever you publish or exchange your patches with other people. If you have some work in progress you are obliged to send out bundled patches once at least every month. This is to assert the availability and recognition of patches at least by the original authors or branch maintainers; a condition which must be held even if you agree not to actively 'send' or 'forward' your patches. For bundled patches you do not need to ship intermediate patches or dead end patches provided that the final derived work can be restored by applying all distributed patches to the original in an order indicated by the patch providers. Something is considered a dead end patch if it leads to a broken program, the result is not usable and you do not plan to continue to work on it. The original authors will finally have to resolve whether to incorporate your patches or not into future versions. Any contributor has the right to be listed with full name, patching date and email address in the changelog of this program.
+
+5. By distributing patches you do also consent that the original authors may incorporate your patches into future versions of this program. The patched parts of the program and the patches themselves will also become subject to this licensing and may even be used for free in other programs or in the same program under different licensing as soon as you choose to publish any kind of patch; i.e. you need to be ready to share your full intellectual property rights with the original authors whenever you choose to exchange, distribute or publish any kind of patch to this program. Sharing your intellectual property means that both parties - you and the original authors - obtain the full set of rights about your modifications which were initially only associated with you. The propagation of rights extends up to usage rights for patents used in derived works including the transferability of usage rights to child and parent branches; it does however not extend up to trademarks. Trademarks used in derived works may only be used by the original authors to describe the origin of newly incorporated features if they wish to do so.
+
+6. If you want to develop a separate branch of this program the original authors need to consent as long as the software may be subject to further development by them; if not that should be indicated by them denominating either new copyright holders with the same right as the original authors or by publishing under a different license. If S-FSL 'with free branching' is explicitly specified in the license terms then you may choose to develop a different branch of this program any time you want given that your new branch serves a new purpose or is sufficiently different so that the original authors do choose not to re-integrate your branch at least for two patching periods. Separate branches have another base name and their own versioning scheme. A new branch will work under the same license and have the same rights as the original concerning the incorporation and management of patches giving the original issuers of the branch equivalent rights as the original authors for the scope of their branch. Branched versions do however need to forward and share patches including all associated property rights with their parent branch. Branched versions can not re-publish under a different license or use patches, patents or other intellectual property of the maintainers of the parent branch in a new context unless explicit consent from the maintainers of the parent branch is given. Hence the propagation of rights as described in the previous paragraph does automatically work in upstream direction only. The maintainers of the original product or any of its branches may any time transfer their rights to a new or extended group of people. The new copyright holders can thereupon act as the original authors or issuers of the branch called branch maintainers.
+
+7. The term distribution describes shipping an aggregate of software, its documentation and adherent materials. Any distribution which wants to assimilate software under S-FSL needs to take the following minimal provisions: It must be possible to verify the download of a whole image as far as provided securely by a publicly available tool and a checksum which is exposed to the broad public. Additional keys may be provided in any kind of way. Security updates and updates against broken functionality must also be available to the public rather than just to a paying customer stock as long as they pertain to software that can either be downloaded or compiled from sources by the public and which pertain to the distribution. Note that updates do not include upgrades to future upstream versions of a program. Available to the public implies here available free of charge apart from connectivity to the internet or a reasonable charge for the reproduction of the data medium and does also pertain to the terms 'public distribution' and 'public distributor'. 
+
+8. Public distributions have the advantage of not having to ship patches proactively to the original authors or copyright holders. This does not prevent the same software including its adherent materials to be additionally available at cost or privately somewhere else as long as public availability remains guaranteed at a reasonable level (f.i. download of the free parts of the distribution within some days.). A public distribution may any time also ship with adherent materials at cost such as documentation, support or additional software as long as it remains available to the public free of charge also without these adherent materials. However there must not be any undue hindrance in obtaining the distribution requiring special knowledge not known by users technically experienced in the field of the public software shipped with the distribution and the software it depends on.
+
+9. Software under S-FSL that should either be used as or in a component, plug-in or add-on of 'non public' or so called 'additional' software or whenever software under S-FSL is required to run such 'non public' or 'additional' software then S-FSL imposes the restriction that the additional or non public software must also either be made available under an OSS-compliant license and free of charge to the public or that you will need to pay for the software under S-FSL being incorporated. A license is to be deemed OSS-compliant if it has been accepted by opensource.org.
+
+10. If any of the terms stated in this license were not in accordance with local law all other parts of this license should remain valid. If any of the terms about sharing patches should be deemed invalid modifying the software and sharing patches shall no more be granted from the time of the realization of the decision of the court on in the given country or region; already shared and incorporated patches are still subject to the given terms and conditions as far as deemed valid; the license needs to be re-issued then in order to allow further modifications and sharing of patches again.
+
+EOQ
+  exit 0;
+}
+
+rot=$'\e[1;31m'; blau=$'\e[1;34m'; nv=$'\e[0m'; ul=$'\e[4m';
+err() { echo -e "${rot}$@${nv}" >&2; }
+warn() { echo -e "${rot}$@${nv}" >&2; }
+msg() { echo -e "${blau}$@${nv}" >&2; }
+vmsg() { [[ verbose -gt 1 ]] && echo "$@" >&2; }
+
+help() {
+  cat <<EOQ
+xchroot [options] rootdir [commands]      v.2.3.3
+xchroot [options] cleanup rootdir ... clean all aufs-data-dirs in /tmp and all aufs-mountpoints of the form root-[0-9]*
+xchroot --dir[pfx] »dir« add/delsudoers »user« ... add an entry for »user« into /etc/sudoers being able to xchroot in any dir. below »dir«
+xchroot listsudoers »user« ... list all /etc/sudoer entries for xchroot
+xchroot bashrclines ... return bash macro for invocation as user
+xchroot showmount rootdir
+ --license / -l ... show license information (private usage is free).
+ --alldisplays ... do not solely forward \$DISPLAY to the chroot environment
+ --user/-u »user« ... chown to user after chrooting.
+ --norc ... do not execute /etc/bash.bashrc and rund bash with --norc
+ --shell exec ... use instead of default shell usually found in /etc/passwd
+ Xorg connection (for graphical apps):
+   --socat/-s ... most secure (note that chroot is not a security feature under Linux in contrast to the FreeBSD jails
+   --mntmp ... std: mounting socket dir along with /tmp,/var/tmp,/var/spool: less secure
+   --noX ... do not take any provisions for running Xorg/X11 based apps
+ umounting on exit:
+   --noumount ... do not umount anything; do not terminate running processes, further chroots possible
+   --stdumount ... umount /media,/dev,/sys/,/proc,/selinux
+   --umountall ... umount all under root including root (note: everything in /etc/fstab is automounted on startup, even with noauto option)
+ ( mount points containing spaces are not supported yet.)
+ aufs and unionfs:
+   --aufs / --unionfs ... do not change root; make all changes temporary via unionfs/aufs
+   --save xy-aufs/unionfs.squashfs / --restore xy-aufs/unionfs.squashfs  ... save/restore changes to unionfs-environment
+  
+ f.i. xchroot --mntmp cleanup /dst/debian/
+   or xchroot --umountall cleanup /dst/debian
+
+ possible result codes:
+   2xx ~ xchroot failed:  255 ~ EINVAL (wrong parameters), 200 ~ EPERM (not run as root/ other permission error),  ...
+   132 ~ other xchroot instances still running	
+   100 ~ processes left running in the previous chroot (no other xchroot instances running)
+    +1 ~ umounting error by user, +2 ~ umounting error by xchroot, +4 file deletion/rmdir error
+   +16 ~ rescuable changes to unionfs environment when exiting without full cleanup, +8 possible error at freezing changes (auplink: concerning hard links)
+
+EOQ
+exit 0;
+}
+
+if [ "${XCONNECT}" = "noX" ] && [ -n "$DISPLAY" -o -n "$XAUTHORITY" ]; then
+  echo "\$XCONNECT=noX but \$DISPLAY or \$XAUTHORITY set; ignoring \$XCONNECT (defaults now to $Xconnect)." >&2; 
+  unset XCONNECT
+fi
+Xconnect=${XCONNECT:-mntmp}; tgUser=root; tgGroup=''; doumount=1; addstdmount="";
+unionfs=""; verbose=1; alldisplays=0; bashrc=1; shell=""; erropt=0; udba=none; 
+options=""; noask=false; save=""; restore=""; tailopts=false;
+
+if [ "$SUDO_COMMAND" = "$0${*:+ }$*" ]; then
+  user="$SUDO_USER"; gid="$SUDO_GID"; group="$( getent group $SUDO_GID | cut -f 1 -d : )"
+else
+  user="$(id -un)"; gid=$(id -g); group="$(id -gn)"
+fi
+
+assert_frontopt() {
+  if ! $frontopt; then err "$opt is for resaons of security only allowed as a front option.\n"; exit 200; fi
+}
+
+ALLOWEDENVVARS="DISPLAY XAUTHORITY XCHROOT_MYROOT XCONNECT";
+
+isin() { tok="$1"; while [ $# -gt 1 ]; do [ "$tok" = "$2" ] && return 0; shift; done; return 1; }
+
+setenv() {
+  varname="${1%%=*}"; value="${1#*=}";
+  if isin "$varname" $ALLOWEDENVVARS; then
+    export "$varname=$value"
+  else err "tried to trespass unapproved environment variable »$varname« into target chroot environment."; 
+       echo -e "execute $(basename $0) --approved in order to list all currently approved environment variables.\n" >&2;
+       exit 200;
+  fi
+}
+
+quote() { while [ $# -gt 0 ]; do echo -n "'$1' "; shift; done; }
+
+if grep -q -- --group <( su --help; ); then suknowsgroups=true; else suknowsgroups=false; fi
+
+userPerm() { { #local cmd="$1"; shift;
+  if which sudo 2>&9 1>&9;
+    then sudo -u $user -g '#'$gid "$@"; return $?;
+  elif $suknowsgroups;
+    then su $user -g $group -c "$(quote "$@")"; return $?
+  else
+    echo su without groups
+    su $user -c "$(quote "$@")"; return $?
+  fi
+} 9>/dev/null; }
+
+parseopts() { local i opt
+  let i=$1; shift; opt="${!i}";
+  while [ "${opt:0:1}" = "-" ]; do
+
+    let OPTIND=i;
+    while [ "${!OPTIND:0:2}" != "--" ] && getopts tahlqu:- myopt; do case $myopt in
+      -) break;;       # --long option
+      a) unionfs='aufs';; s) Xconnect=socat;;
+      u) assert_frontopt; tgUser=$OPTARG;; 
+      h) help;; l) license;; v) verbose=2;; q) verbose=0;;
+      t) tailopts=true;;
+      *) erropt=1;;
+    esac; done
+    #shift $(( OPTIND - 1 )); let OPTIND=0;
+    let i=OPTIND; opt="${!i}"; let i=i+1;
+
+    while [ "${opt:0:2}" = "--" ]; do 
+      case $opt in
+	--) shift; break 2;;  # -- indicates end of options
+	--useaufs|--aufs) unionfs='aufs';; --unionfs) unionfs='unionfs';; --udba) udba="${!i}"; let i++;;
+	--unionopts) unionopts="${!i}"; let i++;; --maxfiles) maxfiles="${!i}"; let i++;;
+	--user) assert_frontopt; tgUser="${!i}"; let i++;; --norc) bashrc=0;; --shell) shell="${!i}"; let i++;;
+	--noumount) doumount=0;;  --stdumount) doumount=1;; --umountall) doumount=2;;
+	--socat) Xconnect=socat;; --mntmp) Xconnect=mntmp;; --noX) Xconnect=noX;;
+	--noask) noask=true;; --save) save="${!i}"; let i++;; --restore) restore="${!i}"; let i++;;
+	--squashopts) squashopts="${!i}"; let i++;;
+	--dirpfx) dirpfx="${!i}"; let i++;; --dir) dirpfx="${!i%/}/ "; let i++;;
+        --env) setenv "${!i}"; let i++;; --approved) echo -e "$ALLOWEDENVVARS\n"; exit 0;;
+      --help) help;; --license) license;; --verbose) verbose=2;; --quiet) verbose=0;; --alldisplays) alldisplays=1;;
+	*) erropt=1; err unknown long option: $opt;;
+      esac; 
+      opt="${!i}"; let i++;
+    done;
+    #echo "***$i****"
+    let i--;
+    if [ "$opt" = "-" ]; then erropt=1; err "stale - in options"; let i++; opt="${!i}"; fi
+
+  done
+  [[ i -gt 255 ]] && { err "too many options (max 255)!"; exit 255; }
+  return $i
+}
+
+frontopt=true;
+parseopts 1 "$@";
+let i=$?-1
+options="${@:1:i}"
+shift $i;
+
+frontopt=false;
+if $tailopts; then
+  let i=$#;
+  while [[ i -gt 0 ]] && [ "${!i}" != "--" ]; do let i--; done
+  if [[ i -le 0 ]]; then err " -t for tailoptions specified but no -- delimiter for tail options found."; exit 255; fi
+  parseopts $((i+1)) "$@";
+  let n=$?-1; let nn=n-i;
+  if [[ $# -ne $n ]]; then err "spurious term in tail options (something that is not an option after --)"; exit 255; fi
+  options="$options ${@:i+1:nn}"
+  set -- "${@:1:i-1}"
+else
+  let i=$#-1;
+  while [ "${!i}" = "--env" ]; do
+    let i=i+1; setenv "${!i}";
+    let i=i-3
+  done
+  set -- "${@:1:i+1}"
+fi
+
+[ "$1" = "help" ] && help
+[[ erropt -gt 0 ]] && exit 255;
+[[ $# -eq 0 ]] && { echo "xchroot --license/--help";echo; exit 255; } >&2
+[ "$Xconnect" = "mntmp" ] && addstdmount="/tmp /var/tmp /var/spool"
+
+tgUserGroup=$tgUser; tgUser=${tgUser%:*}; 
+if [ "$tgUser" != "$tgUserGroup" ]; then
+  tgGroup=${tgUserGroup#*:}; 
+else
+  tgGroup="";
+fi
+
+#echo $user:$gid~$group // $tgUser:$tgGroup
+#exit 0
+
+if [ -n "$restore" ]; then
+  if [ "$user" = "root" ]; 
+    then [ -e "$restore" -a ! -d "$restore" ]
+    else userPerm test -e "$restore" -a ! -d "$restore"
+  fi || { err "squashfs image to be restored not found: $restore\n"; exit 254; }
+  [ "$user" != "root" ] && ! userPerm test -r "$restore" && { err "$user has no permission to read squashfs image $restore\n"; exit 200; }
+fi
+
+saveok() { local save=$1;
+  dirname="$(dirname "$save")";
+  if [ "$user" = "root" ]; then [ -d "$dirname" ]; else userPerm test -d "$dirname"; fi || { err "directory in which '$save' should reside not found\n"; return 253; }; # do not let user discover which root-only listable directories exist
+  if [ "$user" = "root" ]; then [ -e "$save" ]; else userPerm test -e "$save"; fi 
+  if [ $? -eq 0 ]; then
+    err "error: file to save unionfs-environment to does already exist."; echo >&2; return 222; 
+  else
+    [ "$user" != "root" ] && ! userPerm test -w "$dirname" && { err "$user has no permission to create files in $dirname.\n"; return 200; }
+  fi
+  return 0;
+}
+
+[ -n "$save" ] && { saveok "$save" || exit $?; }
+
+#echo "options: $options"
+#echo "rest: $@"
+#echo "$user:$group";
+
+shopt -s extglob nullglob
+
+addsudoers() {
+  [ $# -le 0 ] && echo "no users specified for adding\n" >&2
+  self=$(which $0)
+  while [[ $# -gt 0 ]]; do user="$1";
+    if [ "${user////}" != "$user" ]; then err "wrong user spec '$user'"; shift; continue; fi
+    if [ "$tgUser" != "root" ]; then fromUser="$tgUser"; else fromUser="$user"; fi
+
+    if [ -z "$dirpfx" ]; then isanytarget=" !! for any target dir !!"; else isanytarget=""; fi
+    if [[ "${dirpfx% }" != "${dirpfx}" ]]; then
+      msg "adding $fromUser->$user ${dirpfx:+with directory }$dirpfx${isanytarget}to /etc/sudoers ...";
+    else
+      msg "adding $fromUser->$user ${dirpfx:+with directory praefix }$dirpfx${isanytarget} to /etc/sudoers ...";
+    fi
+    { echo "$fromUser	ALL=(root) NOPASSWD: $self [-]u $user $dirpfx*" 
+      echo "$fromUser	ALL=(root) NOPASSWD: $self [-]u $user [-]t $dirpfx*" 
+      echo "$fromUser	ALL=(root) NOPASSWD: $self [-]u $user cleanup $dirpfx*" 
+      echo "$fromUser	ALL=(root) NOPASSWD: $self [-]u $user [-]t cleanup $dirpfx*" 
+    } >>/etc/sudoers
+    shift;
+  done
+  echo >&2;
+}
+
+delsudoers() {
+  [ $# -le 0 ] && echo "no users specified for adding (use 'all' to delete all entries.).\n" >&2
+  selfbase="$(basename $0)"
+  while [[ $# -gt 0 ]]; do user="$1";
+    if [ "$user" = "all"  -a "$tgUser" = "all" ]; then
+      msg "deleting all xchroot entries in /etc/sudoers";
+      let n1=$(wc -l /etc/sudoers | cut -f 1 -d ' ')
+      sed -i "/xchroot/d" /etc/sudoers
+      let n2=$(wc -l /etc/sudoers | cut -f 1 -d ' ')
+      echo "$((n1-n2)) lines removed from /etc/sudoers" >&2
+      break
+    fi
+    if [ "${user////}" != "$user" ]; then err "wrong user spec '$user'"; shift; continue; fi
+    if [ "$tgUser" != "root" ]; then fromUser="$tgUser"; else fromUser="$user"; fi
+
+    msg "deleting xchroot entries for $fromUser->$user ${dirpfx:+and }$dirpfx ..."
+    let n1=$(wc -l /etc/sudoers | cut -f 1 -d ' ')
+    if [ "$user" = "all" ]; then
+      sed -i "/$fromUser	ALL=(root) NOPASSWD: [^ \t]*xchroot \[-\]u [A-Za-z0-9]\+ \(\[-\]t \)\?\(cleanup \)\?${dirpfx////[/]}/d" /etc/sudoers
+    elif [ "$fromUser" = "all" ]; then
+      sed -i "/[A-Za-z0-9]\+	ALL=(root) NOPASSWD: [^ \t]*xchroot \[-\]u $user \(\[-\]t \)\?\(cleanup \)\?${dirpfx////[/]}/d" /etc/sudoers
+    else
+      sed -i "/$fromUser	ALL=(root) NOPASSWD: [^ \t]*xchroot \[-\]u $user \(\[-\]t \)\?\(cleanup \)\?${dirpfx////[/]}/d" /etc/sudoers
+    fi
+    let n2=$(wc -l /etc/sudoers | cut -f 1 -d ' ')
+    echo "$((n1-n2)) lines removed from /etc/sudoers" >&2
+    shift;
+  done
+  echo >&2;
+}
+
+listsudoers() {
+  msg "xchroot entries in /etc/sudoers:";
+  grep xchroot /etc/sudoers | while read; do
+    read user who nopasswd self uopt asuser rest <<<"$REPLY"
+    if [ "$who $nopasswd $uopt" = "ALL=(root) NOPASSWD: [-]u" ]; then 
+      echo "$self: $user->$asuser $rest"
+    else
+      echo "other entry ~ $REPLY"
+    fi
+  done
+  echo
+}
+
+bashrclines() {
+  self=$(which $0)
+  cat <<EOQ
+openroot() { 
+  if [ "\$1" = "-u" ]; then
+    sudo $self "\$@" --env XCHROOT_MYROOT="\$XCHROOT_MYROOT" --env XAUTHORITY="\$XAUTHORITY" --env DISPLAY="\$DISPLAY";  
+  else
+    sudo $self -u \$(whoami) "\$@" --env XCHROOT_MYROOT="\$XCHROOT_MYROOT" --env XAUTHORITY="\$XAUTHORITY" --env DISPLAY="\$DISPLAY";  
+  fi
+}
+
+# for further information on how to address issues with su and Xorg
+# see at: www.elstel.org/xchroot, or /usr/share/doc[/packages]/xchroot
+#
+
+EOQ
+}
+
+CleanAufsRoots() {  shopt -s extglob nullglob
+  echo cleaning up all union/aufs-sideroots ...
+  rm -fr /tmp/xchroot/{unionfs,aufs}-* 2>/dev/null
+  ls -d /tmp/xchroot/{unionfs,aufs}-*
+  rmdir /tmp/xchroot/mount-*
+
+  # nur subdirectories löschen; nicht die session cookies
+  
+  #  while [ -n "$2" ]; do
+  #    echo "delete all [y/n]? :" $2-+([0-9])
+  #    read -n 1 key; test "$key" = "y" && rmdir $2-+([0-9]); echo
+  #    shift
+  #  done
+}
+
+ShowMount() {
+  mount | grep " on $root" | cut -f 3 -d ' ' | sort; echo
+}
+
+TermChRootProcesses() {
+  while true; do
+    if [ "$action" != cleanup -o -z "$unionfs" ]; then
+      pss=$(for pr in /proc/*/root; do p=${pr%/root}; p=${p#/proc/}; [ "$(readlink $pr)" = "$root" ] && echo $p; done);
+    else
+      pss=$(for pr in /proc/*/root; do p=${pr%/root}; p=${p#/proc/}; link="$(readlink $pr)"; [ "${link#/tmp/xchroot/mount-$xrootname-}" != "$link" ] && echo $p; done);
+    fi
+    [ -z "$pss" ] && return 0;
+    msg "some processes are still running in the chroot."
+    ps -p $pss; echo
+    $noask && return 1;
+    echo -n "${ul}K${nv}ill them, Kill -${ul}9${nv} them, fire up a ${ul}B${nv}ash, ${ul}R${nv}etry, ${ul}L${nv}eave without killing [K/9/B/R/L]?";
+    while true; do read -n 1 key; echo;
+      case $key in
+	b|B) msg "type exit when you are done."; bash;; k|K) kill $pss; sleep 1.3;; 9) kill -9 $pss; sleep 1;; r|R) ;; l|L) return 1;; *) continue;;
+      esac
+      break;
+    done
+  done
+}
+
+cleanup() {
+  # remember that bash has to fork for $(..); as a consequence we have to subtract one
+  let instancesrunning=$(ps axh -o pid,comm,args | grep "^[0-9[:space:]]*[[:space:]]xchroot " | grep -c "$root")-1;
+  if [[ instancesrunning -gt 1 ]]; then 
+    msg "several xchroot instances ($instancesrunning) are running on the same root; not doing any umounts"; echo "(last terminating xchroot instance may unmount and terminate xchroot processes)." >&2;
+    ps axh -o pid,comm,args | grep "^[0-9[:space:]]*[[:space:]]xchroot " | grep "$root" >&2;
+    echo >&2;
+    doumount=0; let result=132;
+  fi
+  if [[ doumount -gt 0 ]]; then 
+    TermChRootProcesses || {
+      msg "you have chosen to leave some programs running;"; msg "not umounting anything; - do this at a later time";
+      echo "xchroot ${options# } cleanup $origroot" >&2; echo >&2;
+      let result=100; if [ -n "$unionfs" -a "$action" != "cleanup" ] && AnyChanged /tmp/xchroot/$unionfs-$xrootname-$$; then let result+=16; fi
+      return $result;
+    }
+  fi
+  let errbits=0
+  # [ -e "$tmprd/startup-$$" ] || echo "can not delete $tmprd/startup-??; delete the appropriate file by hand."
+  # delete command line file
+  if [ "$action" != "cleanup" ]; then
+    rm "$tmprd/startup-$$" || let errbits\|=4
+    [ -e "$tmprd/$xauthf-$tgUser" ] && rm "$tmprd/$xauthf-$tgUser" || let errbits\|=4
+    [ -n "$socker" ] && kill $socker
+
+  elif [[ doumount -gt 0 ]]; then
+    for pathxauthfusr in $tmprd/xauth-$xrootname-*; do
+      xauthf="${pathxauthfusr%-*}"; pid="${xauthf##*-}"; # f.i. xauth-debian-20020-root
+      rm "$tmprd/startup-$pid" || let errbits\|=4
+      # no environment variables set here! [ "$Xconnect" != "noX" ] && { rm "$pathxauthfusr" || let errbits\|=4; }
+      [ -e "$pathxauthfuser" ] && { rm "$pathxauthfusr" || let errbits\|=4; }
+    done
+    while read socker rest; do
+      kill $socker;
+    done < <( ps axh -o pid,comm,args | grep "^[0-9[:space:]]*[[:space:]]socat " | grep "$root/tmp/.X11-unix/"; )
+
+  fi
+  #[[ doumount -gt 0 ]] && rm "$tmprd/$xauthf-$tgUser"
+  case $doumount in
+    1|2) for submp in /media /dev /sys /proc /selinux $addstdmount; do
+         mount | grep " on $root$submp" | cut -f 3 -d ' ' | sort -r | while read mp; do vmsg "umounting $mp"; umount "$mp"||let errbits\|=2; done 
+       done;;
+    0) msg "leaving everything mounted; umount later on.";; 
+    *) err "umounting error.";;
+  esac
+
+  if [ -n "$unionfs" -o -d "/tmp/xchroot/mount-$xrootname-$$" ]; then
+    if [ "$action" != "cleanup" ]; then
+
+      if [ "$unionfs" = "aufs" ]; then
+	# make changes to hard linked files permanent
+	auplink /tmp/xchroot/mount-$xrootname-$$ flush || let errbits\|=8;
+      fi
+      stillovermounted=$( mount | grep "on /tmp/xchroot/mount-$xrootname-$$/." | wc -l )
+      if [[ stillovermounted -gt 0 ]]; then
+	err "cannot umount aufs root; some over--bind-mounts still present; please umount first."
+	mount | grep "on /tmp/xchroot/mount-$xrootname-$$/."
+	err "xchroot ${options# } cleanup $origroot"; echo >&2;
+	let errbits\|=1;
+
+      elif umount /tmp/xchroot/mount-$xrootname-$$; then
+	rmdir /tmp/xchroot/mount-$xrootname-$$ || let errbits\|=4
+	checkSaveRemove $$ /tmp/xchroot/$unionfs-$xrootname-$$ 
+	cleanupLayerDir $addlayerdir
+      else 
+	echo "xchroot ${options# } cleanup $origroot" >&2; echo >&2;
+	let errbits\|=2;
+	bash -i
+      fi
+
+    else	# action = cleanup
+      for mntdir in /tmp/xchroot/mount-$xrootname-*; do
+	msg "approaching to umount $mntdir ..."; mntdir="${mntdir%/}"
+	mtab=/proc/mounts; [ -e "/proc/mounts" ] || mtab=/etc/mtab
+	cat $mtab | grep "[[:space:]]*[^[:space:]]\+[[:space:]]\+$mntdir/..*" | sort -u | while read what mountpoint rest; do
+	  umount -f $mountpoint || { let errbits\|=1; err "error umounting $mountpoint ..."; }
+	done
+	pid=${mntdir#/tmp/xchroot/mount-$xrootname-}
+	if [ "$unionfs" = "aufs" ]; then
+	  # make changes to hard linked files permanent
+	  auplink /tmp/xchroot/mount-$xrootname-$pid flush || let errbits\|=8;
+	fi
+	if umount $mntdir; then
+	  rmdir $mntdir || let errbits\|=4
+	  unionfsdir=$(for d in /tmp/xchroot/{unionfs,aufs}-$xrootname-$pid; do [ -d "$d" ] && echo $d; done )
+	  # set $unionfs, $addlayerdir and $addbranch for checkSaveRemove
+	  unionfs=${unionfsdir#/tmp/xchroot/}; unionfs=${unionfs%%-*}
+	  addlayerdir=/tmp/xchroot/squashfs-$pid
+	  if [ "$unionfs" = "unionfs" ]; then
+	    addbranch=":$addlayerdir=RO";
+	  else
+	    addbranch=":$addlayerdir=rr+wh";	  # real-readonly + acknowledging whiteout files
+	  fi
+	  unionrwbranch="/tmp/xchroot/$unionfs-$xrootname-$pid";
+	  checkSaveRemove $pid $unionfsdir; 				# /tmp/xchroot/{unionfs,aufs}-$xrootname-$pid
+	  cleanupLayerDir $addlayerdir
+	  #rm -fr /tmp/xchroot/{unionfs,aufs}-$xrootname-$pid || let errbits\|=4
+	else 
+	  err "error umounting $mntdir ..." >&2;
+	  echo "xchroot ${options# } cleanup $origroot" >&2; echo >&2;
+	  let errbits\|=2;
+	fi
+      done
+
+    fi
+  fi
+
+  case $doumount in
+    2) mount | egrep " on $root| on $origroot" | cut -f 3 -d ' ' | sort -r | while read mp; do vmsg "umounting $mp"; umount "$mp"||let errbits\|=2; done;;
+  esac
+
+  [[ verbose -gt 0 ]] && echo
+  let result+=errbits
+  return $result
+}
+
+cleanupsilent() {
+  noask=true; traphandler=true;
+  cleanup
+}
+
+cleanupLayerDir() {
+  if [ -d "$1" ]; then
+    if umount "$1"; then
+      rmdir "$1" || let errbits\|=4
+    else let errbits\|=2; fi
+  fi
+}
+
+AnyChanged() {
+  let hasfiles=1;
+  { if read line; then
+      let hasfiles=0; # success
+    fi
+  } < <( find "$1" -type f | egrep -v "/\.bash_history$|/\.wh\.\.wh\."; )
+  return $hasfiles;
+}
+
+checkSaveRemove() { 
+  # ~unionrwbranch
+  pid=$1
+  unionrwdir=/tmp/xchroot/${2#/tmp/xchroot/}
+  #msg "checkSaveRemove $unionrwdir"
+  if [ -z "$save" ] && ! $noask && AnyChanged $unionrwdir; then
+    msg "save changes to chroot environment? ${nv} - $unionrwdir"; echo "Press <Enter> or enter an empty line to continue without saving." >&2;
+    echo "note: filename will be appended with -$unionfs.squashfs" >&2
+    while true; do
+      read -p "filename to save to [list content before: ??<return>]: " save
+      if [ "$save" = "??" ]; then
+	find $unionrwdir
+	continue;
+      fi
+      save="${save%.squashfs}"; save="${save%-$unionfs}"
+      [ -z "$save" ] && break;
+      save="$save${unionfs:+-}$unionfs.squashfs";
+      saveok "$save" && break;
+      #err "file does already exist or any other error trying to save at $save."
+    done  
+  fi
+  let imgcreaterr=0
+  if [ -n "$save" ]; then
+    msg "mksquashfs --normalized $unionrwdir $addlayerdir $save $squashopts"
+    [ "${save:0:1}" != "/" ] && save="$(pwd)/$save"
+    if [ -z "$addlayerdir" ]; then
+      pushd $unionrwdir >&9 && \
+	echo mksquashfs ./ $save $squashopts
+	mksquashfs ./ $save $squashopts || let imgcreaterr=1
+      popd >&9
+
+    else
+      mountdir=/tmp/xchroot/mount-$xrootname-$pid; mkdir $mountdir
+      if [ "$unionfs" = "unionfs" ]; then
+        echo unionfs suid,dev "$unionrwbranch"=RO$addbranch "$mountdir"
+        unionfs -o cow,suid,dev "$unionrwbranch"=RO$addbranch "$mountdir" || let imgcreaterr=1
+      else
+	echo mount -t aufs -o udba=none,br:"$unionrwbranch"=ro+wh$addbranch none "$mountdir"
+	mount -t aufs -o udba=none,br:"$unionrwbranch"=ro+wh$addbranch none "$mountdir" || let imgcreaterr=1
+      fi
+      pushd $mountdir >&9
+      mksquashfs ./ $save $squashopts || let imgcreaterr=1
+      popd >&9
+      if umount $mountdir; then rmdir $mountdir || let errbits\|=4; else let errbits\|=2; fi
+
+    fi 9>/dev/null
+    [ -e "$save" ] && chown $user:$group $save
+  fi
+  if [[ imgcreaterr -le 0 ]]; then
+    rm -fr $unionrwdir || let errbits\|=4
+  else
+    let errbits\|=8;  # an error occurred when trying to freeze changes
+    let errbits\|=16;  # nothing deleted; indicate that it can still be rescued
+  fi
+}
+
+case $1 in
+  bashrclines) bashrclines; exit $?;;
+  *) ;;
+esac
+
+[[ $(id -u) -ne 0 ]] && { err "xchroot must be run as root.";echo; exit 200; }
+
+case $1 in
+  cleanup) shift; action=cleanup
+    if [ "$Xconnect" = "mntmp" ]; then tmprd="/tmp/xchroot"; else tmprd="$root/tmp/xchroot"; fi
+    ;;
+  cleanaufsroots) shift; action=CleanAufsRoots;;
+  showmount) shift; action=ShowMount;;
+  addsudoers) shift; addsudoers "$@"; exit $?;;
+  delsudoers) shift; delsudoers "$@"; exit $?;;
+  listsudoers) shift; listsudoers "$@"; exit $?;;
+  *) action=""; [[ verbose -gt 0 ]] && echo $'\e#3\e[;33mxchroot - visit us on www.elstel.org/xchroot\e[0m\r\n' >&2; ;;
+esac;
+
+if ! test -d "$1"; then
+  echo "root directory '$1' not found." >&2
+  echo
+  exit 1
+fi
+
+if [ -n "$dirpfx" ]; then
+  err "--dirpfx option may only be given for xchroot addsudoers";
+  exit 255;
+fi
+
+root="${1%/}"; shift
+if [ "${root:0:1}" != "/" ]; then
+  pushd "$root" >&9 || exit 1
+  root="$(pwd)"
+  popd "$root" >&9
+fi 9>/dev/null
+
+xrootname="${root##*/}"
+origroot="$root"
+
+if [ -n "$unionfs" ]; then
+  roroot="$root";
+  root="/tmp/xchroot/mount-$xrootname-$$";
+  unionrwbranch="/tmp/xchroot/$unionfs-$xrootname-$$";
+fi
+
+if [ -n "$action" ]; then
+  $action
+  exit $?
+fi
+
+
+[[ verbose -gt 0 ]] && echo -----------------------------------------------------------
+exit2() { 
+  result=$1;
+  while [[ $# -gt 1 ]]; do
+    # aufs may be half-mounted on ioctl errors
+    grep -q "^none $2" /proc/mounts && umount $2
+    rmdir $2
+    shift
+  done
+  [[ verbose -gt 0 ]] && echo -----------------------------------------------------------; 
+  exit $result; 
+}
+
+#
+#  *** mount ***
+#
+
+mtab=/proc/mounts
+[ -e "/proc/mounts" ] || mtab=/etc/mtab
+
+cndmount() { eval local mp="\${$#}"
+  grep -q "^[^ ]* $mp " $mtab || { vmsg "mounting $mp"; mkdir -p $mp; mount "$@"; }
+}
+
+# mount points with spaces: use My\ Directory, but not: "My Directory"
+# mp is second field: predeceded by [[:space::]], strip out comments
+mpp=($({ grep "[[:space:]]$origroot" /etc/fstab | grep -v "[[:space:]]*#" | while read mdev mp rest; do echo "$mp"; done; } | sort -u))
+for mp in "${mpp[@]}"; do cndmount "$mp"; done
+
+if [ -n "$unionfs" ]; then
+  [ -x "$(which mksquashfs 2>/dev/null)" ] || warn "warning: mksquashfs not found: will not be able to safe image."
+  mkdir -p "$root"
+  mkdir -p "$unionrwbranch"
+  if [ -n "$restore" ]; then
+   if [ -e "$restore" ]; then
+     addlayerdir=/tmp/xchroot/squashfs-$$
+     mkdir "$addlayerdir" || exit2 223;
+     mount -t squashfs -o loop "$restore" $addlayerdir
+     if [ "$unionfs" = "unionfs" ]; then
+       addbranch=":$addlayerdir=RO";
+     else
+       addbranch=":$addlayerdir=rr+wh";	  # real-readonly + acknowledging whiteout files
+     fi
+   else
+     err "file '$restore' not found.";
+   fi
+  fi
+  if [ "$unionfs" = "unionfs" ]; then
+    echo unionfs -o cow,max_files=${maxfiles:-32768},allow_other,suid,dev${unionopts:+,}$unionopts "$unionrwbranch"=RW:"${roroot}"=RO "$root"
+    unionfs -o cow,max_files=${maxfiles:-32768},allow_other,suid,dev${unionopts:+,}$unionopts "$unionrwbranch"=RW$addbranch:"${roroot}"=RO "$root" ||  exit2 221 "$root" $unionrwbranch $addlayerdir; 
+  elif [ "$unionfs" = "aufs" ]; then
+    echo mount -t aufs -o udba=${udba:-none}${unionopts:+,}$unionopts,br:"$unionrwbranch"=rw$addbranch:"${roroot}"=ro none "$root" 
+    mount -t aufs -o udba=${udba:-none}${unionopts:+,}$unionopts,br:"$unionrwbranch"=rw$addbranch:"${roroot}"=ro none "$root" || exit2 221 "$root" $unionrwbranch $addlayerdir; 
+  else err "unknown unification filesystem: $unionfs"; exit2 255;
+  fi
+
+fi
+
+[ -d "$root/bin" ] || { 
+  if [ -n "$unionfs" ]; then umount "$root"; rmdir "$root" $unionrwbranch $addlayerdir; fi
+  err "$root does not look like chroot-environment (no /bin-dir); exiting."; 
+  exit2 228; 
+}
+
+cndmount --bind /dev "$root/dev"
+cndmount --bind /dev/pts "$root/dev/pts"
+cndmount --bind /sys "$root/sys"
+cndmount --bind /proc "$root/proc"
+cndmount --bind /selinux "$root/selinux"
+
+mount | grep " on /sys/" | cut -f 3 -d ' ' | sort | while read mp; do
+  cndmount --bind $mp "$root$mp"
+done
+
+mkdir -p "$root/media"
+if [ -d "$root/media" ]; then 
+  cndmount --bind /media "$root/media"
+  grep "^[^ ]* /media" $mtab | while read mdev mp rest; do echo "$mp"; done | sort -u | while read mp; do
+    cndmount --bind $mp $root$mp
+  done
+else err "could not create mount point $root/media: not mounted."
+fi
+
+if [ "$Xconnect" = "mntmp" ]; then
+  for mp in $addstdmount; do
+    cndmount --bind $mp "$root$mp"
+  done
+fi
+
+#
+# *** prepare startup file ***
+#
+
+tmprd="$root/tmp/xchroot"
+mkdir -p "$tmprd"
+tmpd="/tmp/xchroot"
+# Warning!! $tmprd not yet mounted !!
+
+absroot="$XCHROOT_MYROOT$root"
+#xauthf="xauth-${absroot////\\}-$$"
+# otherwise later on: XAUTHORITY=${XAUTHORITY////\\} xauth extract - $DISPLAY
+#xauthf="xauth-${absroot////:}-$$"
+xauthf="xauth-${xrootname}-$$"
+#xauthf="xauth-${absroot////\\}"
+
+#if ! [ -x "$root$SHELL" ];then
+# if [ -e "$root/bin/bash" ]; then err "shell $SHELL not found in $root; bash-fallback applied."; SHELL="/bin/bash"; 
+# elif [ -e "$root/bin/csh" ]; then err "shell $SHELL not found in $root; csh-fallback applied."; SHELL="/bin/csh"; 
+# fi
+#fi
+
+{
+
+[[ -x "$root/bin/bash" ]] && echo "#!/bin/bash" >&8
+echo "export XCHROOT_MYROOT='$XCHROOT_MYROOT$root'" >&8
+echo "export XCHROOT_NAME='$xrootname'" >&8
+echo "export XCHROOT_USER='$tgUser'" >&8
+echo "export XCHROOT_GROUP='$tgGroup'" >&8
+echo 'export HOME="$(getent passwd '$tgUser' | cut -f 6 -d :)"' >&8
+if [ -z "$shell" ]; then
+  echo 'export SHELL="$(getent passwd '$tgUser' | cut -f 7 -d :)"' >&8
+else
+  echo "export SHELL='$shell'" >&8
+fi
+echo "export DISPLAY='$DISPLAY'" >&8
+echo "export XAUTHORITY='$tmpd/$xauthf-$tgUser'" >&8
+[[ bashrc -gt 0 ]] && echo "[ -e /etc/bash.bashrc ] && source /etc/bash.bashrc" >&8
+
+if [ $# -gt 0 ]; then
+  command="$*"
+else 
+  #if [[ bashrc -gt 0 ]]; then command="$SHELL"; else command="$SHELL --norc"; fi
+  command="";
+fi
+
+if [ "$tgUser" != "root" ]; then
+  #echo "su -c \"$command\" $tgUser" >&8
+  echo 'if [ -z "$XCHROOT_GROUP" ]; then ' >&8
+  echo '  gid="$(getent passwd "$XCHROOT_USER" | cut -f 4 -d :)"' >&8
+  echo '  if [ -z "$gid" ]; then export XCHROOT_GROUP=nobody' >&8
+  echo '  else export XCHROOT_GROUP="$(getent group $gid | cut -f 1 -d :)"' >&8
+  echo '  fi; defaultgroup=true' >&8
+  echo 'else defaultgroup=false' >&8
+  echo 'fi ' >&8
+  echo 'if [[ $(id -u) -eq 0 ]]; then' >&8
+  echo '  if grep -q -- --group <( su --help; ); then SUGRP="-g $XCHROOT_GROUP"; else SUGRP=""; fi' >&8
+  echo '  if which sudo 1>/dev/null 2>/dev/null; then ' >&8
+  echo '    if $defaultgroup; then exec sudo -u '"$tgUser $tmpd/startup-$$;" >&8
+  echo '                      else exec sudo -u '"$tgUser -g \$XCHROOT_GROUP $tmpd/startup-$$; fi" >&8
+  echo '  elif grep -q session-command <( su --help; ); then' >&8
+  echo '    exec su $SUGRP --session-command '"$tmpd/startup-$$ $tgUser" >&8
+  echo '  else ' >&8
+  echo "    echo $'\e[0;31mold version of su; you may want to install sudo for bash to allow job control.\e[0m' >&2 " >&8
+  echo "    exec su \$SUGRP -c $tmpd/startup-$$ $tgUser" >&8
+  echo 'fi; fi' >&8
+fi
+
+echo "cd ~" >&8
+
+[[ verbose -gt 0 ]] && echo "if [ -e /etc/issue ]; then cat /etc/issue; else echo 'unknown Linux distro.';echo; fi" >&8
+if [ -n "$command" ]; then
+  if [ -z "$shell" ]; then
+    echo "exec $command" >&8
+  else
+    #echo "exec $shell -c '$command'" >&8
+    echo "exec $shell -c \"${command//\"/\\\"}\"" >&8
+  fi
+else
+  if [[ bashrc -le 0 ]]; then 
+    echo 'if [ "$SHELL" = "/bin/bash" ]; then exec /bin/bash --norc; else exec $SHELL; fi ' >&8
+  else
+    #echo 'echo exec $SHELL' >&8
+    echo 'exec $SHELL' >&8
+  fi
+fi
+
+
+} 8>$tmprd/startup-$$
+
+#cat $tmprd/startup-$$
+
+
+#set -- bash --norc
+chmod +x $tmprd/startup-$$;
+set -- $tmpd/startup-$$; 
+#cat $tmprd/startup-$$
+
+
+#
+# *** establish Xorg interconnection ***
+#
+
+if [ "$Xconnect" != "noX" ]; then
+
+  if [ -z "$DISPLAY" ]; then
+    warn "\$DISPLAY not set; may not be able to run X programs \e[0m(use --noX to get rid of this message)";
+  fi
+
+  #xhost +localhost
+  socker=''
+  if [ "${DISPLAY:0:1}" = ":" ]; then
+
+    sockno="${DISPLAY#:}"; sockno="${sockno%.*}";
+    case $Xconnect in
+      socat)
+	if ! [ -e $root/tmp/.X11-unix/X$sockno ]; then
+	  if ! which socat 2>&9 >&9 ; then err "socat not on path; please install it"; trap '' EXIT; cleanup; exit2 221; fi
+	  mkdir -p $root/tmp/.X11-unix
+	  [ -e $root/tmp/.X11-unix/X$sockno ] && { err "$root/tmp/.X11-unix/X$sockno already exists; retry without socat; terminating."; exit2 220; }
+	  socat UNIX-LISTEN:$root/tmp/.X11-unix/X$sockno,fork UNIX-CONNECT:/tmp/.X11-unix/X$sockno & socker=$!
+	fi
+	;;
+      mntmp)
+	# we have already mounted /tmp etc. so that our socks file is on path
+	;;
+      noX) ;; *) err "unknown X connection mode.";;
+    esac
+
+  fi 9>/dev/null
+
+  touch $tmprd/$xauthf-$tgUser
+  userdir="$(getent passwd "$user" | cut -f 6 -d :)"; userdir="${userdir%/}/"
+  : ${XAUTHORITY:=$userdir.Xauthority}
+  #echo "${XAUTHORITY} $alldisplays" >&2;
+
+  if [ -e "$XAUTHORITY" ]; then
+    if [[ alldisplays -gt 0 ]]; 
+      then cat "${XAUTHORITY}";
+      else XAUTHORITY=$XAUTHORITY xauth extract - $DISPLAY 
+    fi | env XAUTHORITY=$tmprd/$xauthf-$tgUser xauth merge -
+    chown $tgUserGroup "$tmprd/$xauthf-$tgUser"
+    
+  elif [ -n "$XAUTHORITY" ] && [ -n "$DISPLAY" ]; then
+    if [ -n "$DISPLAY" ] && which xhost >&9 2>&9 && egrep -q "INET|access control disabled" <( xhost; ); then
+      # seems ok: certain clients can connect without xauth-mechanism; do nothing ~ : 1
+      : 1
+
+    else
+      warn "\$XAUTHORITY file $XAUTHORITY not found.";
+      msg "connection may not work without an unsafe xhost +" >&2;
+    fi
+
+  fi 9>/dev/null
+
+fi
+
+#
+# *** perform chroot ***
+#
+
+[[ verbose -gt 0 ]] && echo chroot "$root" "$@" >&2
+result=0; traphandler=false;
+trap cleanupsilent EXIT
+#XAUTHORITY=/root/.Xauthority chroot "$root" "$@"
+chroot "$root" "$@" 
+#DISPLAY="localhost:0" chroot "$root" "$@" 
+
+retval=$?;
+if [[ retval -ne 0 ]]; then
+  [[ verbose -gt 0 ]] && echo "--------------- chroot - error ----------------------------"
+  err "chroot returned $retval."
+  #( set -x;
+  #ls $root
+  #mount | grep aufs; )
+fi
+#cat $tmprd/startup-$$;
+
+
+#
+# *** cleanup & exit ***
+#
+
+[[ verbose -gt 0 ]] && echo -----------------------------------------------------------
+
+trap '' EXIT
+cleanup
+setretval() { return $1; }
+setretval $result;
+#$traphandler || exit $result
+  
+
+
+
+
+
+
+
+
+
+# in yast-system-/etc/syscfg/-displaymanager-xserver_tcp_port_6000_open
+
+# grep "$roroot" /etc/fstab | while read mdev mp rest; do echo "$mp"; done | sort | while read mp; do 
+#   if [ -z "$useaufs" ]; then 
+#    cndmount "$mp"
+#   else
+#     echo mount -t aufs -o append:"$mp" none "$root"
+#     mount -t aufs -o append:"$mp" none "$root"
+#     Speicherzugriffsfehler
+#   fi
+# done

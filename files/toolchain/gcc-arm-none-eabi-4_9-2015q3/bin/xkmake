@@ -1,0 +1,9 @@
+#!/bin/bash
+
+# Launch environment setter script
+. set_compile_env.sh
+
+# Launch make with parameters
+make ARCH="arm" $*
+
+exit 0

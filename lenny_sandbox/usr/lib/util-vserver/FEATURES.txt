@@ -1,0 +1,25 @@
+Features:
+		       CC: gcc, gcc (Debian 4.3.2-1) 4.3.2
+                      CXX: g++, g++ (Debian 4.3.2-1) 4.3.2
+                 CPPFLAGS: ''
+                   CFLAGS: '-Wall -g  -O2 -std=c99 -Wall -pedantic -W -funit-at-a-time'
+                 CXXFLAGS: '-g -O2 -ansi -Wall -pedantic -W -fmessage-length=0 -funit-at-a-time'
+               build/host: x86_64-pc-linux-gnu/x86_64-pc-linux-gnu
+             Use dietlibc: yes
+       Build C++ programs: yes
+       Build C99 programs: yes
+           Available APIs: v13,net,v21,v22,v23,netv2
+            ext2fs Source: e2fsprogs
+    syscall(2) invocation: alternative
+      vserver(2) syscall#: 236/glibc
+               crypto api: beecrypt
+   use library versioning: yes
+
+Paths:
+                   prefix: /usr
+        sysconf-Directory: /etc
+            cfg-Directory: /etc/vservers
+         initrd-Directory: $(sysconfdir)/init.d
+       pkgstate-Directory: /var/run/vservers
+          vserver-Rootdir: /var/lib/vservers
+

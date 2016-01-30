@@ -1,0 +1,738 @@
+
+Log started: 2015-12-30  19:23:36
+Can not write log, openpty() failed (/dev/pts not mounted?)
+Can not write log, openpty() failed (/dev/pts not mounted?)
+Log ended: 2015-12-30  19:23:37
+
+Log started: 2015-12-30  19:25:24
+Can not write log, openpty() failed (/dev/pts not mounted?)
+Can not write log, openpty() failed (/dev/pts not mounted?)
+Log ended: 2015-12-30  19:25:28
+
+Log started: 2015-12-30  19:32:44
+Can not write log, openpty() failed (/dev/pts not mounted?)
+Can not write log, openpty() failed (/dev/pts not mounted?)
+Log ended: 2015-12-30  19:32:46
+
+Log started: 2015-12-30  19:34:16
+Can not write log, openpty() failed (/dev/pts not mounted?)
+Can not write log, openpty() failed (/dev/pts not mounted?)
+Can not write log, openpty() failed (/dev/pts not mounted?)
+Can not write log, openpty() failed (/dev/pts not mounted?)
+Log ended: 2015-12-30  19:35:06
+
+Log started: 2016-01-07  15:20:25
+Selecting previously deselected package libevent1.
+(Reading database ... 15614 files and directories currently installed.)
+Unpacking libevent1 (from .../libevent1_1.3e-3_amd64.deb) ...
+Selecting previously deselected package libgssglue1.
+Unpacking libgssglue1 (from .../libgssglue1_0.1-2_amd64.deb) ...
+Selecting previously deselected package libkeyutils1.
+Unpacking libkeyutils1 (from .../libkeyutils1_1.2-9_amd64.deb) ...
+Selecting previously deselected package libkrb53.
+Unpacking libkrb53 (from .../libkrb53_1.6.dfsg.4~beta1-5lenny7_amd64.deb) ...
+Selecting previously deselected package libldap-2.4-2.
+Unpacking libldap-2.4-2 (from .../libldap-2.4-2_2.4.11-1+lenny2.1_amd64.deb) ...
+Selecting previously deselected package libnfsidmap2.
+Unpacking libnfsidmap2 (from .../libnfsidmap2_0.20-1_amd64.deb) ...
+Selecting previously deselected package librpcsecgss3.
+Unpacking librpcsecgss3 (from .../librpcsecgss3_0.18-1_amd64.deb) ...
+Selecting previously deselected package portmap.
+Unpacking portmap (from .../portmap_6.0-9_amd64.deb) ...
+Selecting previously deselected package ucf.
+Unpacking ucf (from .../archives/ucf_3.0016_all.deb) ...
+Moving old data out of the way
+Selecting previously deselected package nfs-common.
+Unpacking nfs-common (from .../nfs-common_1%3a1.1.2-6lenny2_amd64.deb) ...
+Selecting previously deselected package nfs-kernel-server.
+Unpacking nfs-kernel-server (from .../nfs-kernel-server_1%3a1.1.2-6lenny2_amd64.deb) ...
+Processing triggers for man-db ...
+perl: warning: Setting locale failed.
+perl: warning: Please check that your locale settings:
+	LANGUAGE = "en_US",
+	LC_ALL = (unset),
+	LC_PAPER = "ru_RU.UTF-8",
+	LC_ADDRESS = "ru_RU.UTF-8",
+	LC_MONETARY = "ru_RU.UTF-8",
+	LC_NUMERIC = "ru_RU.UTF-8",
+	LC_TELEPHONE = "ru_RU.UTF-8",
+	LC_IDENTIFICATION = "ru_RU.UTF-8",
+	LC_MEASUREMENT = "ru_RU.UTF-8",
+	LC_TIME = "ru_RU.UTF-8",
+	LC_NAME = "ru_RU.UTF-8",
+	LANG = "en_US.UTF-8"
+    are supported and installed on your system.
+perl: warning: Falling back to the standard locale ("C").
+Setting up libevent1 (1.3e-3) ...
+Setting up libgssglue1 (0.1-2) ...
+Setting up libkeyutils1 (1.2-9) ...
+Setting up libkrb53 (1.6.dfsg.4~beta1-5lenny7) ...
+Setting up libldap-2.4-2 (2.4.11-1+lenny2.1) ...
+Setting up libnfsidmap2 (0.20-1) ...
+Setting up librpcsecgss3 (0.18-1) ...
+Setting up portmap (6.0-9) ...
+perl: warning: Setting locale failed.
+perl: warning: Please check that your locale settings:
+	LANGUAGE = "en_US",
+	LC_ALL = (unset),
+	LC_PAPER = "ru_RU.UTF-8",
+	LC_ADDRESS = "ru_RU.UTF-8",
+	LC_MONETARY = "ru_RU.UTF-8",
+	LC_NUMERIC = "ru_RU.UTF-8",
+	LC_TELEPHONE = "ru_RU.UTF-8",
+	LC_IDENTIFICATION = "ru_RU.UTF-8",
+	LC_MEASUREMENT = "ru_RU.UTF-8",
+	LC_TIME = "ru_RU.UTF-8",
+	LC_NAME = "ru_RU.UTF-8",
+	LANG = "en_US.UTF-8"
+    are supported and installed on your system.
+perl: warning: Falling back to the standard locale ("C").
+locale: Cannot set LC_CTYPE to default locale: No such file or directory
+locale: Cannot set LC_MESSAGES to default locale: No such file or directory
+locale: Cannot set LC_ALL to default locale: No such file or directory
+perl: warning: Setting locale failed.
+perl: warning: Please check that your locale settings:
+	LANGUAGE = "en_US",
+	LC_ALL = (unset),
+	LC_PAPER = "ru_RU.UTF-8",
+	LC_ADDRESS = "ru_RU.UTF-8",
+	LC_MONETARY = "ru_RU.UTF-8",
+	LC_NUMERIC = "ru_RU.UTF-8",
+	LC_TELEPHONE = "ru_RU.UTF-8",
+	LC_IDENTIFICATION = "ru_RU.UTF-8",
+	LC_MEASUREMENT = "ru_RU.UTF-8",
+	LC_TIME = "ru_RU.UTF-8",
+	LC_NAME = "ru_RU.UTF-8",
+	LANG = "en_US.UTF-8"
+    are supported and installed on your system.
+perl: warning: Falling back to the standard locale ("C").
+Starting portmap daemon....
+Setting up ucf (3.0016) ...
+perl: warning: Setting locale failed.
+perl: warning: Please check that your locale settings:
+	LANGUAGE = "en_US",
+	LC_ALL = (unset),
+	LC_PAPER = "ru_RU.UTF-8",
+	LC_ADDRESS = "ru_RU.UTF-8",
+	LC_MONETARY = "ru_RU.UTF-8",
+	LC_NUMERIC = "ru_RU.UTF-8",
+	LC_TELEPHONE = "ru_RU.UTF-8",
+	LC_IDENTIFICATION = "ru_RU.UTF-8",
+	LC_MEASUREMENT = "ru_RU.UTF-8",
+	LC_TIME = "ru_RU.UTF-8",
+	LC_NAME = "ru_RU.UTF-8",
+	LANG = "en_US.UTF-8"
+    are supported and installed on your system.
+perl: warning: Falling back to the standard locale ("C").
+locale: Cannot set LC_CTYPE to default locale: No such file or directory
+locale: Cannot set LC_MESSAGES to default locale: No such file or directory
+locale: Cannot set LC_ALL to default locale: No such file or directory
+Setting up nfs-common (1:1.1.2-6lenny2) ...
+perl: warning: Setting locale failed.
+perl: warning: Please check that your locale settings:
+	LANGUAGE = "en_US",
+	LC_ALL = (unset),
+	LC_PAPER = "ru_RU.UTF-8",
+	LC_ADDRESS = "ru_RU.UTF-8",
+	LC_MONETARY = "ru_RU.UTF-8",
+	LC_NUMERIC = "ru_RU.UTF-8",
+	LC_TELEPHONE = "ru_RU.UTF-8",
+	LC_IDENTIFICATION = "ru_RU.UTF-8",
+	LC_MEASUREMENT = "ru_RU.UTF-8",
+	LC_TIME = "ru_RU.UTF-8",
+	LC_NAME = "ru_RU.UTF-8",
+	LANG = "en_US.UTF-8"
+    are supported and installed on your system.
+perl: warning: Falling back to the standard locale ("C").
+perl: warning: Setting locale failed.
+perl: warning: Please check that your locale settings:
+	LANGUAGE = "en_US",
+	LC_ALL = (unset),
+	LC_PAPER = "ru_RU.UTF-8",
+	LC_ADDRESS = "ru_RU.UTF-8",
+	LC_MONETARY = "ru_RU.UTF-8",
+	LC_NUMERIC = "ru_RU.UTF-8",
+	LC_TELEPHONE = "ru_RU.UTF-8",
+	LC_IDENTIFICATION = "ru_RU.UTF-8",
+	LC_MEASUREMENT = "ru_RU.UTF-8",
+	LC_TIME = "ru_RU.UTF-8",
+	LC_NAME = "ru_RU.UTF-8",
+	LANG = "en_US.UTF-8"
+    are supported and installed on your system.
+perl: warning: Falling back to the standard locale ("C").
+locale: Cannot set LC_CTYPE to default locale: No such file or directory
+locale: Cannot set LC_MESSAGES to default locale: No such file or directory
+locale: Cannot set LC_ALL to default locale: No such file or directory
+perl: warning: Setting locale failed.
+perl: warning: Please check that your locale settings:
+	LANGUAGE = "en_US",
+	LC_ALL = (unset),
+	LC_PAPER = "ru_RU.UTF-8",
+	LC_ADDRESS = "ru_RU.UTF-8",
+	LC_MONETARY = "ru_RU.UTF-8",
+	LC_NUMERIC = "ru_RU.UTF-8",
+	LC_TELEPHONE = "ru_RU.UTF-8",
+	LC_IDENTIFICATION = "ru_RU.UTF-8",
+	LC_MEASUREMENT = "ru_RU.UTF-8",
+	LC_TIME = "ru_RU.UTF-8",
+	LC_NAME = "ru_RU.UTF-8",
+	LANG = "en_US.UTF-8"
+    are supported and installed on your system.
+perl: warning: Falling back to the standard locale ("C").
+
+Creating config file /etc/idmapd.conf with new version
+perl: warning: Setting locale failed.
+perl: warning: Please check that your locale settings:
+	LANGUAGE = "en_US",
+	LC_ALL = (unset),
+	LC_PAPER = "ru_RU.UTF-8",
+	LC_ADDRESS = "ru_RU.UTF-8",
+	LC_MONETARY = "ru_RU.UTF-8",
+	LC_NUMERIC = "ru_RU.UTF-8",
+	LC_TELEPHONE = "ru_RU.UTF-8",
+	LC_IDENTIFICATION = "ru_RU.UTF-8",
+	LC_MEASUREMENT = "ru_RU.UTF-8",
+	LC_TIME = "ru_RU.UTF-8",
+	LC_NAME = "ru_RU.UTF-8",
+	LANG = "en_US.UTF-8"
+    are supported and installed on your system.
+perl: warning: Falling back to the standard locale ("C").
+perl: warning: Setting locale failed.
+perl: warning: Please check that your locale settings:
+	LANGUAGE = "en_US",
+	LC_ALL = (unset),
+	LC_PAPER = "ru_RU.UTF-8",
+	LC_ADDRESS = "ru_RU.UTF-8",
+	LC_MONETARY = "ru_RU.UTF-8",
+	LC_NUMERIC = "ru_RU.UTF-8",
+	LC_TELEPHONE = "ru_RU.UTF-8",
+	LC_IDENTIFICATION = "ru_RU.UTF-8",
+	LC_MEASUREMENT = "ru_RU.UTF-8",
+	LC_TIME = "ru_RU.UTF-8",
+	LC_NAME = "ru_RU.UTF-8",
+	LANG = "en_US.UTF-8"
+    are supported and installed on your system.
+perl: warning: Falling back to the standard locale ("C").
+locale: Cannot set LC_CTYPE to default locale: No such file or directory
+locale: Cannot set LC_MESSAGES to default locale: No such file or directory
+locale: Cannot set LC_ALL to default locale: No such file or directory
+perl: warning: Setting locale failed.
+perl: warning: Please check that your locale settings:
+	LANGUAGE = "en_US",
+	LC_ALL = (unset),
+	LC_PAPER = "ru_RU.UTF-8",
+	LC_ADDRESS = "ru_RU.UTF-8",
+	LC_MONETARY = "ru_RU.UTF-8",
+	LC_NUMERIC = "ru_RU.UTF-8",
+	LC_TELEPHONE = "ru_RU.UTF-8",
+	LC_IDENTIFICATION = "ru_RU.UTF-8",
+	LC_MEASUREMENT = "ru_RU.UTF-8",
+	LC_TIME = "ru_RU.UTF-8",
+	LC_NAME = "ru_RU.UTF-8",
+	LANG = "en_US.UTF-8"
+    are supported and installed on your system.
+perl: warning: Falling back to the standard locale ("C").
+
+Creating config file /etc/default/nfs-common with new version
+perl: warning: Setting locale failed.
+perl: warning: Please check that your locale settings:
+	LANGUAGE = "en_US",
+	LC_ALL = (unset),
+	LC_PAPER = "ru_RU.UTF-8",
+	LC_ADDRESS = "ru_RU.UTF-8",
+	LC_MONETARY = "ru_RU.UTF-8",
+	LC_NUMERIC = "ru_RU.UTF-8",
+	LC_TELEPHONE = "ru_RU.UTF-8",
+	LC_IDENTIFICATION = "ru_RU.UTF-8",
+	LC_MEASUREMENT = "ru_RU.UTF-8",
+	LC_TIME = "ru_RU.UTF-8",
+	LC_NAME = "ru_RU.UTF-8",
+	LANG = "en_US.UTF-8"
+    are supported and installed on your system.
+perl: warning: Falling back to the standard locale ("C").
+perl: warning: Setting locale failed.
+perl: warning: Please check that your locale settings:
+	LANGUAGE = "en_US",
+	LC_ALL = (unset),
+	LC_PAPER = "ru_RU.UTF-8",
+	LC_ADDRESS = "ru_RU.UTF-8",
+	LC_MONETARY = "ru_RU.UTF-8",
+	LC_NUMERIC = "ru_RU.UTF-8",
+	LC_TELEPHONE = "ru_RU.UTF-8",
+	LC_IDENTIFICATION = "ru_RU.UTF-8",
+	LC_MEASUREMENT = "ru_RU.UTF-8",
+	LC_TIME = "ru_RU.UTF-8",
+	LC_NAME = "ru_RU.UTF-8",
+	LANG = "en_US.UTF-8"
+    are supported and installed on your system.
+perl: warning: Falling back to the standard locale ("C").
+Adding system user `statd' (UID 101) ...
+Adding new user `statd' (UID 101) with group `nogroup' ...
+Not creating home directory `/var/lib/nfs'.
+Starting NFS common utilities: statd.
+Setting up nfs-kernel-server (1:1.1.2-6lenny2) ...
+perl: warning: Setting locale failed.
+perl: warning: Please check that your locale settings:
+	LANGUAGE = "en_US",
+	LC_ALL = (unset),
+	LC_PAPER = "ru_RU.UTF-8",
+	LC_ADDRESS = "ru_RU.UTF-8",
+	LC_MONETARY = "ru_RU.UTF-8",
+	LC_NUMERIC = "ru_RU.UTF-8",
+	LC_TELEPHONE = "ru_RU.UTF-8",
+	LC_IDENTIFICATION = "ru_RU.UTF-8",
+	LC_MEASUREMENT = "ru_RU.UTF-8",
+	LC_TIME = "ru_RU.UTF-8",
+	LC_NAME = "ru_RU.UTF-8",
+	LANG = "en_US.UTF-8"
+    are supported and installed on your system.
+perl: warning: Falling back to the standard locale ("C").
+perl: warning: Setting locale failed.
+perl: warning: Please check that your locale settings:
+	LANGUAGE = "en_US",
+	LC_ALL = (unset),
+	LC_PAPER = "ru_RU.UTF-8",
+	LC_ADDRESS = "ru_RU.UTF-8",
+	LC_MONETARY = "ru_RU.UTF-8",
+	LC_NUMERIC = "ru_RU.UTF-8",
+	LC_TELEPHONE = "ru_RU.UTF-8",
+	LC_IDENTIFICATION = "ru_RU.UTF-8",
+	LC_MEASUREMENT = "ru_RU.UTF-8",
+	LC_TIME = "ru_RU.UTF-8",
+	LC_NAME = "ru_RU.UTF-8",
+	LANG = "en_US.UTF-8"
+    are supported and installed on your system.
+perl: warning: Falling back to the standard locale ("C").
+locale: Cannot set LC_CTYPE to default locale: No such file or directory
+locale: Cannot set LC_MESSAGES to default locale: No such file or directory
+locale: Cannot set LC_ALL to default locale: No such file or directory
+perl: warning: Setting locale failed.
+perl: warning: Please check that your locale settings:
+	LANGUAGE = "en_US",
+	LC_ALL = (unset),
+	LC_PAPER = "ru_RU.UTF-8",
+	LC_ADDRESS = "ru_RU.UTF-8",
+	LC_MONETARY = "ru_RU.UTF-8",
+	LC_NUMERIC = "ru_RU.UTF-8",
+	LC_TELEPHONE = "ru_RU.UTF-8",
+	LC_IDENTIFICATION = "ru_RU.UTF-8",
+	LC_MEASUREMENT = "ru_RU.UTF-8",
+	LC_TIME = "ru_RU.UTF-8",
+	LC_NAME = "ru_RU.UTF-8",
+	LANG = "en_US.UTF-8"
+    are supported and installed on your system.
+perl: warning: Falling back to the standard locale ("C").
+
+Creating config file /etc/exports with new version
+perl: warning: Setting locale failed.
+perl: warning: Please check that your locale settings:
+	LANGUAGE = "en_US",
+	LC_ALL = (unset),
+	LC_PAPER = "ru_RU.UTF-8",
+	LC_ADDRESS = "ru_RU.UTF-8",
+	LC_MONETARY = "ru_RU.UTF-8",
+	LC_NUMERIC = "ru_RU.UTF-8",
+	LC_TELEPHONE = "ru_RU.UTF-8",
+	LC_IDENTIFICATION = "ru_RU.UTF-8",
+	LC_MEASUREMENT = "ru_RU.UTF-8",
+	LC_TIME = "ru_RU.UTF-8",
+	LC_NAME = "ru_RU.UTF-8",
+	LANG = "en_US.UTF-8"
+    are supported and installed on your system.
+perl: warning: Falling back to the standard locale ("C").
+perl: warning: Setting locale failed.
+perl: warning: Please check that your locale settings:
+	LANGUAGE = "en_US",
+	LC_ALL = (unset),
+	LC_PAPER = "ru_RU.UTF-8",
+	LC_ADDRESS = "ru_RU.UTF-8",
+	LC_MONETARY = "ru_RU.UTF-8",
+	LC_NUMERIC = "ru_RU.UTF-8",
+	LC_TELEPHONE = "ru_RU.UTF-8",
+	LC_IDENTIFICATION = "ru_RU.UTF-8",
+	LC_MEASUREMENT = "ru_RU.UTF-8",
+	LC_TIME = "ru_RU.UTF-8",
+	LC_NAME = "ru_RU.UTF-8",
+	LANG = "en_US.UTF-8"
+    are supported and installed on your system.
+perl: warning: Falling back to the standard locale ("C").
+locale: Cannot set LC_CTYPE to default locale: No such file or directory
+locale: Cannot set LC_MESSAGES to default locale: No such file or directory
+locale: Cannot set LC_ALL to default locale: No such file or directory
+perl: warning: Setting locale failed.
+perl: warning: Please check that your locale settings:
+	LANGUAGE = "en_US",
+	LC_ALL = (unset),
+	LC_PAPER = "ru_RU.UTF-8",
+	LC_ADDRESS = "ru_RU.UTF-8",
+	LC_MONETARY = "ru_RU.UTF-8",
+	LC_NUMERIC = "ru_RU.UTF-8",
+	LC_TELEPHONE = "ru_RU.UTF-8",
+	LC_IDENTIFICATION = "ru_RU.UTF-8",
+	LC_MEASUREMENT = "ru_RU.UTF-8",
+	LC_TIME = "ru_RU.UTF-8",
+	LC_NAME = "ru_RU.UTF-8",
+	LANG = "en_US.UTF-8"
+    are supported and installed on your system.
+perl: warning: Falling back to the standard locale ("C").
+
+Creating config file /etc/default/nfs-kernel-server with new version
+perl: warning: Setting locale failed.
+perl: warning: Please check that your locale settings:
+	LANGUAGE = "en_US",
+	LC_ALL = (unset),
+	LC_PAPER = "ru_RU.UTF-8",
+	LC_ADDRESS = "ru_RU.UTF-8",
+	LC_MONETARY = "ru_RU.UTF-8",
+	LC_NUMERIC = "ru_RU.UTF-8",
+	LC_TELEPHONE = "ru_RU.UTF-8",
+	LC_IDENTIFICATION = "ru_RU.UTF-8",
+	LC_MEASUREMENT = "ru_RU.UTF-8",
+	LC_TIME = "ru_RU.UTF-8",
+	LC_NAME = "ru_RU.UTF-8",
+	LANG = "en_US.UTF-8"
+    are supported and installed on your system.
+perl: warning: Falling back to the standard locale ("C").
+Starting NFS common utilities: statd.
+FATAL: Could not load /lib/modules/4.2.0-23-generic/modules.dep: No such file or directory
+Not starting NFS kernel daemon: no support in current kernel. [33m(warning).[39;49m
+Log ended: 2016-01-07  15:20:38
+
+Log started: 2016-01-07  15:53:02
+Selecting previously deselected package libbeecrypt6.
+(Reading database ... 15781 files and directories currently installed.)
+Unpacking libbeecrypt6 (from .../libbeecrypt6_4.1.2-7_amd64.deb) ...
+Selecting previously deselected package util-vserver.
+Unpacking util-vserver (from .../util-vserver_0.30.216~r2772-6_amd64.deb) ...
+Selecting previously deselected package debootstrap.
+Unpacking debootstrap (from .../debootstrap_1.0.10lenny1_all.deb) ...
+Processing triggers for man-db ...
+perl: warning: Setting locale failed.
+perl: warning: Please check that your locale settings:
+	LANGUAGE = "en_US",
+	LC_ALL = (unset),
+	LC_PAPER = "ru_RU.UTF-8",
+	LC_ADDRESS = "ru_RU.UTF-8",
+	LC_MONETARY = "ru_RU.UTF-8",
+	LC_NUMERIC = "ru_RU.UTF-8",
+	LC_TELEPHONE = "ru_RU.UTF-8",
+	LC_IDENTIFICATION = "ru_RU.UTF-8",
+	LC_MEASUREMENT = "ru_RU.UTF-8",
+	LC_TIME = "ru_RU.UTF-8",
+	LC_NAME = "ru_RU.UTF-8",
+	LANG = "en_US.UTF-8"
+    are supported and installed on your system.
+perl: warning: Falling back to the standard locale ("C").
+Setting up libbeecrypt6 (4.1.2-7) ...
+Setting up util-vserver (0.30.216~r2772-6) ...
+perl: warning: Setting locale failed.
+perl: warning: Please check that your locale settings:
+	LANGUAGE = "en_US",
+	LC_ALL = (unset),
+	LC_PAPER = "ru_RU.UTF-8",
+	LC_ADDRESS = "ru_RU.UTF-8",
+	LC_MONETARY = "ru_RU.UTF-8",
+	LC_NUMERIC = "ru_RU.UTF-8",
+	LC_TELEPHONE = "ru_RU.UTF-8",
+	LC_IDENTIFICATION = "ru_RU.UTF-8",
+	LC_MEASUREMENT = "ru_RU.UTF-8",
+	LC_TIME = "ru_RU.UTF-8",
+	LC_NAME = "ru_RU.UTF-8",
+	LANG = "en_US.UTF-8"
+    are supported and installed on your system.
+perl: warning: Falling back to the standard locale ("C").
+locale: Cannot set LC_CTYPE to default locale: No such file or directory
+locale: Cannot set LC_MESSAGES to default locale: No such file or directory
+locale: Cannot set LC_ALL to default locale: No such file or directory
+perl: warning: Setting locale failed.
+perl: warning: Please check that your locale settings:
+	LANGUAGE = "en_US",
+	LC_ALL = (unset),
+	LC_PAPER = "ru_RU.UTF-8",
+	LC_ADDRESS = "ru_RU.UTF-8",
+	LC_MONETARY = "ru_RU.UTF-8",
+	LC_NUMERIC = "ru_RU.UTF-8",
+	LC_TELEPHONE = "ru_RU.UTF-8",
+	LC_IDENTIFICATION = "ru_RU.UTF-8",
+	LC_MEASUREMENT = "ru_RU.UTF-8",
+	LC_TIME = "ru_RU.UTF-8",
+	LC_NAME = "ru_RU.UTF-8",
+	LANG = "en_US.UTF-8"
+    are supported and installed on your system.
+perl: warning: Falling back to the standard locale ("C").
+Linux-VServer capability not detected in kernel.
+Setting up debootstrap (1.0.10lenny1) ...
+Log ended: 2016-01-07  15:53:05
+
+Log started: 2016-01-07  15:53:29
+Selecting previously deselected package libfuse2.
+(Reading database ... 16241 files and directories currently installed.)
+Unpacking libfuse2 (from .../libfuse2_2.7.4-1.1+lenny1_amd64.deb) ...
+Selecting previously deselected package uml-utilities.
+Unpacking uml-utilities (from .../uml-utilities_20070815-1.1_amd64.deb) ...
+Processing triggers for man-db ...
+perl: warning: Setting locale failed.
+perl: warning: Please check that your locale settings:
+	LANGUAGE = "en_US",
+	LC_ALL = (unset),
+	LC_PAPER = "ru_RU.UTF-8",
+	LC_ADDRESS = "ru_RU.UTF-8",
+	LC_MONETARY = "ru_RU.UTF-8",
+	LC_NUMERIC = "ru_RU.UTF-8",
+	LC_TELEPHONE = "ru_RU.UTF-8",
+	LC_IDENTIFICATION = "ru_RU.UTF-8",
+	LC_MEASUREMENT = "ru_RU.UTF-8",
+	LC_TIME = "ru_RU.UTF-8",
+	LC_NAME = "ru_RU.UTF-8",
+	LANG = "en_US.UTF-8"
+    are supported and installed on your system.
+perl: warning: Falling back to the standard locale ("C").
+Setting up libfuse2 (2.7.4-1.1+lenny1) ...
+Setting up uml-utilities (20070815-1.1) ...
+perl: warning: Setting locale failed.
+perl: warning: Please check that your locale settings:
+	LANGUAGE = "en_US",
+	LC_ALL = (unset),
+	LC_PAPER = "ru_RU.UTF-8",
+	LC_ADDRESS = "ru_RU.UTF-8",
+	LC_MONETARY = "ru_RU.UTF-8",
+	LC_NUMERIC = "ru_RU.UTF-8",
+	LC_TELEPHONE = "ru_RU.UTF-8",
+	LC_IDENTIFICATION = "ru_RU.UTF-8",
+	LC_MEASUREMENT = "ru_RU.UTF-8",
+	LC_TIME = "ru_RU.UTF-8",
+	LC_NAME = "ru_RU.UTF-8",
+	LANG = "en_US.UTF-8"
+    are supported and installed on your system.
+perl: warning: Falling back to the standard locale ("C").
+perl: warning: Setting locale failed.
+perl: warning: Please check that your locale settings:
+	LANGUAGE = "en_US",
+	LC_ALL = (unset),
+	LC_PAPER = "ru_RU.UTF-8",
+	LC_ADDRESS = "ru_RU.UTF-8",
+	LC_MONETARY = "ru_RU.UTF-8",
+	LC_NUMERIC = "ru_RU.UTF-8",
+	LC_TELEPHONE = "ru_RU.UTF-8",
+	LC_IDENTIFICATION = "ru_RU.UTF-8",
+	LC_MEASUREMENT = "ru_RU.UTF-8",
+	LC_TIME = "ru_RU.UTF-8",
+	LC_NAME = "ru_RU.UTF-8",
+	LANG = "en_US.UTF-8"
+    are supported and installed on your system.
+perl: warning: Falling back to the standard locale ("C").
+perl: warning: Setting locale failed.
+perl: warning: Please check that your locale settings:
+	LANGUAGE = "en_US",
+	LC_ALL = (unset),
+	LC_PAPER = "ru_RU.UTF-8",
+	LC_ADDRESS = "ru_RU.UTF-8",
+	LC_MONETARY = "ru_RU.UTF-8",
+	LC_NUMERIC = "ru_RU.UTF-8",
+	LC_TELEPHONE = "ru_RU.UTF-8",
+	LC_IDENTIFICATION = "ru_RU.UTF-8",
+	LC_MEASUREMENT = "ru_RU.UTF-8",
+	LC_TIME = "ru_RU.UTF-8",
+	LC_NAME = "ru_RU.UTF-8",
+	LANG = "en_US.UTF-8"
+    are supported and installed on your system.
+perl: warning: Falling back to the standard locale ("C").
+perl: warning: Setting locale failed.
+perl: warning: Please check that your locale settings:
+	LANGUAGE = "en_US",
+	LC_ALL = (unset),
+	LC_PAPER = "ru_RU.UTF-8",
+	LC_ADDRESS = "ru_RU.UTF-8",
+	LC_MONETARY = "ru_RU.UTF-8",
+	LC_NUMERIC = "ru_RU.UTF-8",
+	LC_TELEPHONE = "ru_RU.UTF-8",
+	LC_IDENTIFICATION = "ru_RU.UTF-8",
+	LC_MEASUREMENT = "ru_RU.UTF-8",
+	LC_TIME = "ru_RU.UTF-8",
+	LC_NAME = "ru_RU.UTF-8",
+	LANG = "en_US.UTF-8"
+    are supported and installed on your system.
+perl: warning: Falling back to the standard locale ("C").
+perl: warning: Setting locale failed.
+perl: warning: Please check that your locale settings:
+	LANGUAGE = "en_US",
+	LC_ALL = (unset),
+	LC_PAPER = "ru_RU.UTF-8",
+	LC_ADDRESS = "ru_RU.UTF-8",
+	LC_MONETARY = "ru_RU.UTF-8",
+	LC_NUMERIC = "ru_RU.UTF-8",
+	LC_TELEPHONE = "ru_RU.UTF-8",
+	LC_IDENTIFICATION = "ru_RU.UTF-8",
+	LC_MEASUREMENT = "ru_RU.UTF-8",
+	LC_TIME = "ru_RU.UTF-8",
+	LC_NAME = "ru_RU.UTF-8",
+	LANG = "en_US.UTF-8"
+    are supported and installed on your system.
+perl: warning: Falling back to the standard locale ("C").
+Starting User-mode networking switch: uml_switch.
+Log ended: 2016-01-07  15:53:33
+
+Log started: 2016-01-07  18:18:53
+Selecting previously deselected package patch.
+(Reading database ... 16292 files and directories currently installed.)
+Unpacking patch (from .../patch_2.5.9-5_amd64.deb) ...
+Processing triggers for man-db ...
+perl: warning: Setting locale failed.
+perl: warning: Please check that your locale settings:
+	LANGUAGE = "en_US",
+	LC_ALL = (unset),
+	LC_PAPER = "ru_RU.UTF-8",
+	LC_ADDRESS = "ru_RU.UTF-8",
+	LC_MONETARY = "ru_RU.UTF-8",
+	LC_NUMERIC = "ru_RU.UTF-8",
+	LC_TELEPHONE = "ru_RU.UTF-8",
+	LC_IDENTIFICATION = "ru_RU.UTF-8",
+	LC_MEASUREMENT = "ru_RU.UTF-8",
+	LC_TIME = "ru_RU.UTF-8",
+	LC_NAME = "ru_RU.UTF-8",
+	LANG = "en_US.UTF-8"
+    are supported and installed on your system.
+perl: warning: Falling back to the standard locale ("C").
+Setting up patch (2.5.9-5) ...
+Log ended: 2016-01-07  18:18:57
+
+Log started: 2016-01-08  11:22:12
+Selecting previously deselected package mc.
+(Reading database ... 16302 files and directories currently installed.)
+Unpacking mc (from .../mc_2%3a4.6.2~git20080311-4_amd64.deb) ...
+Processing triggers for man-db ...
+perl: warning: Setting locale failed.
+perl: warning: Please check that your locale settings:
+	LANGUAGE = "en_US",
+	LC_ALL = (unset),
+	LC_PAPER = "ru_RU.UTF-8",
+	LC_ADDRESS = "ru_RU.UTF-8",
+	LC_MONETARY = "ru_RU.UTF-8",
+	LC_NUMERIC = "ru_RU.UTF-8",
+	LC_TELEPHONE = "ru_RU.UTF-8",
+	LC_IDENTIFICATION = "ru_RU.UTF-8",
+	LC_MEASUREMENT = "ru_RU.UTF-8",
+	LC_TIME = "ru_RU.UTF-8",
+	LC_NAME = "ru_RU.UTF-8",
+	LANG = "en_US.UTF-8"
+    are supported and installed on your system.
+perl: warning: Falling back to the standard locale ("C").
+Setting up mc (2:4.6.2~git20080311-4) ...
+perl: warning: Setting locale failed.
+perl: warning: Please check that your locale settings:
+	LANGUAGE = "en_US",
+	LC_ALL = (unset),
+	LC_PAPER = "ru_RU.UTF-8",
+	LC_ADDRESS = "ru_RU.UTF-8",
+	LC_MONETARY = "ru_RU.UTF-8",
+	LC_NUMERIC = "ru_RU.UTF-8",
+	LC_TELEPHONE = "ru_RU.UTF-8",
+	LC_IDENTIFICATION = "ru_RU.UTF-8",
+	LC_MEASUREMENT = "ru_RU.UTF-8",
+	LC_TIME = "ru_RU.UTF-8",
+	LC_NAME = "ru_RU.UTF-8",
+	LANG = "en_US.UTF-8"
+    are supported and installed on your system.
+perl: warning: Falling back to the standard locale ("C").
+perl: warning: Setting locale failed.
+perl: warning: Please check that your locale settings:
+	LANGUAGE = "en_US",
+	LC_ALL = (unset),
+	LC_PAPER = "ru_RU.UTF-8",
+	LC_ADDRESS = "ru_RU.UTF-8",
+	LC_MONETARY = "ru_RU.UTF-8",
+	LC_NUMERIC = "ru_RU.UTF-8",
+	LC_TELEPHONE = "ru_RU.UTF-8",
+	LC_IDENTIFICATION = "ru_RU.UTF-8",
+	LC_MEASUREMENT = "ru_RU.UTF-8",
+	LC_TIME = "ru_RU.UTF-8",
+	LC_NAME = "ru_RU.UTF-8",
+	LANG = "en_US.UTF-8"
+    are supported and installed on your system.
+perl: warning: Falling back to the standard locale ("C").
+Log ended: 2016-01-08  11:22:18
+
+Log started: 2016-01-08  12:31:19
+Selecting previously deselected package strace.
+(Reading database ... 16496 files and directories currently installed.)
+Unpacking strace (from .../strace_4.5.17+cvs080723-2_amd64.deb) ...
+Processing triggers for man-db ...
+perl: warning: Setting locale failed.
+perl: warning: Please check that your locale settings:
+	LANGUAGE = "en_US",
+	LC_ALL = (unset),
+	LC_PAPER = "ru_RU.UTF-8",
+	LC_ADDRESS = "ru_RU.UTF-8",
+	LC_MONETARY = "ru_RU.UTF-8",
+	LC_NUMERIC = "ru_RU.UTF-8",
+	LC_TELEPHONE = "ru_RU.UTF-8",
+	LC_IDENTIFICATION = "ru_RU.UTF-8",
+	LC_MEASUREMENT = "ru_RU.UTF-8",
+	LC_TIME = "ru_RU.UTF-8",
+	LC_NAME = "ru_RU.UTF-8",
+	LANG = "en_US.UTF-8"
+    are supported and installed on your system.
+perl: warning: Falling back to the standard locale ("C").
+Setting up strace (4.5.17+cvs080723-2) ...
+Log ended: 2016-01-08  12:31:24
+
+Log started: 2016-01-08  12:52:50
+Selecting previously deselected package lsb-release.
+(Reading database ... 16506 files and directories currently installed.)
+Unpacking lsb-release (from .../lsb-release_3.2-20_all.deb) ...
+Selecting previously deselected package libc6-i386.
+Unpacking libc6-i386 (from .../libc6-i386_2.7-18lenny7_amd64.deb) ...
+Selecting previously deselected package lib32gcc1.
+Unpacking lib32gcc1 (from .../lib32gcc1_1%3a4.3.2-1.1_amd64.deb) ...
+Selecting previously deselected package lib32z1.
+Unpacking lib32z1 (from .../lib32z1_1%3a1.2.3.3.dfsg-12_amd64.deb) ...
+Selecting previously deselected package lib32stdc++6.
+Unpacking lib32stdc++6 (from .../lib32stdc++6_4.3.2-1.1_amd64.deb) ...
+Selecting previously deselected package lib32asound2.
+Unpacking lib32asound2 (from .../lib32asound2_1.0.16-2_amd64.deb) ...
+Selecting previously deselected package lib32ncurses5.
+Unpacking lib32ncurses5 (from .../lib32ncurses5_5.7+20081213-1_amd64.deb) ...
+Selecting previously deselected package ia32-libs.
+Unpacking ia32-libs (from .../ia32-libs_2.7+lenny4_amd64.deb) ...
+Processing triggers for man-db ...
+perl: warning: Setting locale failed.
+perl: warning: Please check that your locale settings:
+	LANGUAGE = "en_US",
+	LC_ALL = (unset),
+	LC_PAPER = "ru_RU.UTF-8",
+	LC_ADDRESS = "ru_RU.UTF-8",
+	LC_MONETARY = "ru_RU.UTF-8",
+	LC_NUMERIC = "ru_RU.UTF-8",
+	LC_TELEPHONE = "ru_RU.UTF-8",
+	LC_IDENTIFICATION = "ru_RU.UTF-8",
+	LC_MEASUREMENT = "ru_RU.UTF-8",
+	LC_TIME = "ru_RU.UTF-8",
+	LC_NAME = "ru_RU.UTF-8",
+	LANG = "en_US.UTF-8"
+    are supported and installed on your system.
+perl: warning: Falling back to the standard locale ("C").
+Setting up lsb-release (3.2-20) ...
+Setting up libc6-i386 (2.7-18lenny7) ...
+Setting up lib32gcc1 (1:4.3.2-1.1) ...
+Setting up lib32z1 (1:1.2.3.3.dfsg-12) ...
+Setting up lib32stdc++6 (4.3.2-1.1) ...
+Setting up lib32asound2 (1.0.16-2) ...
+Setting up lib32ncurses5 (5.7+20081213-1) ...
+Setting up ia32-libs (2.7+lenny4) ...
+perl: warning: Setting locale failed.
+perl: warning: Please check that your locale settings:
+	LANGUAGE = "en_US",
+	LC_ALL = (unset),
+	LC_PAPER = "ru_RU.UTF-8",
+	LC_ADDRESS = "ru_RU.UTF-8",
+	LC_MONETARY = "ru_RU.UTF-8",
+	LC_NUMERIC = "ru_RU.UTF-8",
+	LC_TELEPHONE = "ru_RU.UTF-8",
+	LC_IDENTIFICATION = "ru_RU.UTF-8",
+	LC_MEASUREMENT = "ru_RU.UTF-8",
+	LC_TIME = "ru_RU.UTF-8",
+	LC_NAME = "ru_RU.UTF-8",
+	LANG = "en_US.UTF-8"
+    are supported and installed on your system.
+perl: warning: Falling back to the standard locale ("C").
+Log ended: 2016-01-08  12:52:55

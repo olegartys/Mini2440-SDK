@@ -1,0 +1,2 @@
+#deb http://httpredir.debian.org/debian lenny main
+deb http://www.embedian.org/grip lenny main

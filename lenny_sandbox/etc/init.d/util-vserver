@@ -1,0 +1,264 @@
+#!/bin/sh
+### BEGIN INIT INFO
+# Provides:          util-vserver
+# Required-Start:    $local_fs 
+# Required-Stop:     $local_fs
+# Should-Start:      $network
+# Should-Stop:       $network
+# Default-Start:     2 3 4 5
+# Default-Stop:      0 1 6
+# Short-Description: Prepare system for Linux-Vservers and start guests
+# Description:       Perpare the system to use Linux-Vservers and
+#                    start guests that have been defined to start on boot
+### END INIT INFO
+
+DEBIANCONFIG=/etc/default/util-vserver
+
+if [ -f $DEBIANCONFIG ]
+then
+	. $DEBIANCONFIG
+fi
+
+# Ensure necessary directories exist
+mkdir -p /var/run/vservers
+mkdir -p /var/run/vservers.rev
+mkdir -p /var/run/vshelper
+
+: ${UTIL_VSERVER_VARS:=/usr/lib/util-vserver/util-vserver-vars}
+
+test -e "$UTIL_VSERVER_VARS" || 
+   {
+   	echo "Can not find util-vserver installation (the file '$UTIL_VSERVER_VARS' is expected); aborting..." >&2
+   	exit 1
+   }
+
+. "$UTIL_VSERVER_VARS"
+
+PIDFILE=/var/run/rebootmgr.pid
+LOCKFILE=$MARK
+vprocunhide_lockfile=/var/run/vprocunhide
+export MARK NUMPARALLEL LOCKFILE
+
+# Test to see if there are legacy configs around
+TMPLEGACYTEST=$(find /etc/vservers/ -name "*.conf")
+if [ -n "$TMPLEGACYTEST" ]
+then
+    legacy=yes
+fi
+
+# Check whether value is true/enabled
+is_true() {
+    if [ "x$1" = "xtrue" -o "x$1" = "xyes" ] ; then
+        return 0
+    else
+        return 1
+    fi
+}
+
+# Print the vserver name in priority/alpha order
+# This function is only used for legacy configs
+sortserver(){
+	(
+	cd $__CONFDIR
+	for serv in *.conf
+	do
+	        test -f "$serv" || continue
+
+		PRIORITY=100
+		. $serv
+		test "$ONBOOT" || continue
+		printf "%03d %s\n" $PRIORITY `basename $serv .conf`
+	done
+	) | sort $* | (while read a b; do echo $b; done)
+}
+
+# Start vservers
+# This function is only used for legacy configs
+startservers(){
+	cd $__CONFDIR
+	for name in `sortserver`
+	do
+		ONBOOT=
+		. $name.conf
+		if is_true "$ONBOOT" ; then
+		echo "Starting Linux-VServer guests..."
+			$_VSERVER_LEGACY $name start
+		else
+			echo "virtual server $name not configured for on boot start"
+		fi
+	done
+}
+
+start()
+{
+
+    # First set vserver related attributes for /proc, this
+    # makes some necessary /proc entries visible in vservers
+
+    if [ -e /proc/self/vinfo ]
+    then
+
+	# Check for vc_set_iattr feature, if its not detected, then we are probably running a 
+	# 2.4 kernel where all of /proc is unhidden by default
+	$_VSERVER_INFO - FEATURE iattr
+	if [ $? -eq 0 ]
+	then
+		echo -n "Fixing visibility of /proc entries for Linux-VServer guests..."
+		$_VPROCUNHIDE
+		if [ $? -ne 0 ]
+		then
+			echo "Error in setting Linux-VServer related attributes for /proc"
+		else
+			touch "$vprocunhide_lockfile"
+			echo "done."
+		fi
+	fi
+
+        # Remove barrier on / if it exists
+        if [ -e /proc/self/vinfo ]
+        then
+        	showattr -d / | awk '{print $1'} | grep -q B
+                if [ $? -eq 0 ]
+                then
+                	setattr --~barrier /
+                fi
+        fi
+
+        # Then set the chroot barrier
+	for vserver in `ls /etc/vservers` 
+	do 
+		vdiractual=`readlink -f /etc/vservers/$vserver/vdir` 
+		if [ -d "$vdiractual" ]
+		then
+			setattr --barrier $vdiractual/..
+		fi
+	done
+
+	vrootactual=`readlink -f /etc/vservers/.defaults/vdirbase`
+	setattr --barrier $vrootactual $vrootactual/.pkg $vrootactual/.hash
+
+	# Then start up vservers with $MARK if $AUTO is set to start things
+	if is_true "$AUTO"
+       	then
+		if is_true "$BACKGROUND"
+		then
+			echo "Starting Linux-VServers in background"
+			/usr/lib/util-vserver/vserver-wrapper start  >/dev/tty8 </dev/tty8 2>/dev/tty8 &
+		else
+			/usr/lib/util-vserver/vserver-wrapper start
+		fi
+	else
+       		echo "Auto starting of Linux-VServer guests is not enabled in $DEBIANCONFIG"
+		echo "Please start your Linux-VServer guests manually with 'vserver <vserver-name> start'"
+	fi
+
+    else
+    	   echo -n "Linux-VServer capability not detected in kernel."
+    fi
+
+    echo
+}
+
+stop()
+{
+    if [ -e /proc/self/vinfo ]
+    then
+	if is_true "$AUTO"
+	then
+		/usr/lib/util-vserver/vserver-wrapper stop;
+	fi
+	rm -f "$vprocunhide_lockfile"
+    else
+    	echo -n "Linux-VServer capability not detected in kernel."
+    fi
+
+}
+
+forcestop()
+{
+	echo "Stopping all running Linux-VServer guests..."
+	for vserver in `vserver-stat | grep -v "CTX   PROC    VSZ    RSS  userTIME   sysTIME    UPTIME NAME" |grep -v ^0 | awk '{print $8}'`
+	do 
+		echo -n "Stopping $vserver: "
+		vserver $vserver stop 2>&1 >/dev/null
+		echo "done."
+	done
+	# This is broken: /usr/lib/util-vserver/start-vservers --stop --running
+}
+
+restart()
+{
+    stop
+    start
+}
+
+case "$1" in
+    start)
+          # First run the legacy starts, if there are any
+          if is_true "$legacy" ; then
+	      if is_true "$BACKGROUND" ; then
+		  startservers >/dev/tty8 </dev/tty8 2>/dev/tty8 &
+	      else
+		  startservers
+	      fi
+	      touch /var/lock/subsys/vservers-legacy
+	  fi
+	  # Then start the modern vservers, if there are any
+	  start
+          ;;
+    stop)
+	 # First stop the legacy vservers
+         if is_true "$legacy" ; then
+             echo "Stopping Vservers"
+	     cd $__CONFDIR
+	     for name in `sortserver -r`
+	     do
+	       $_VSERVER_LEGACY $name stop
+	     done
+	 rm -f /var/lock/subsys/vservers-legacy
+	 fi
+	 # Then stop the modern vservers
+	 stop
+	 if is_true "$ALWAYS_STOP"
+	 then
+	 	forcestop
+	 fi
+	 ;;
+    forcestop)
+	stop
+	forcestop	
+	;;
+    restart)	
+            $1
+	    ;;
+    reload)		
+            ;;
+    status)
+	# Do tests for old legacy interface
+           if is_true "$legacy" ; then
+	       	cd $__CONFDIR
+		for serv in *.conf
+		do
+		  ONBOOT=no
+		  name=`basename $serv .conf`
+		  . $serv
+		  echo -n ONBOOT=$ONBOOT " "
+		  $_VSERVER_LEGACY $name running
+		done
+	   else	
+		# Now check for the modern stuff
+	   	APIVER=`vserver-info - APIVER`
+	   	if [ $? -ne 0 ]
+	   	then
+	       		echo "Linux-VServer enabled kernel not detected"
+	   	else
+			echo "API version detected in kernel: $APIVER" 
+			vserver-stat
+	   	fi
+	    fi
+	    ;;
+    *)
+        echo "Usage: $0 {start|stop|forcestop|reload|restart|status}"
+	exit 2
+	;;
+esac

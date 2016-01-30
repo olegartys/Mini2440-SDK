@@ -1,0 +1,47 @@
+Dec  8 09:47:42 mini2440 init: Id "T0" respawning too fast: disabled for 5 minutes
+Dec  8 09:57:52 mini2440 modprobe: FATAL: Could not load /lib/modules/2.6.32.2-FriendlyARM/modules.dep: No such file or directory
+Dec  8 09:57:52 mini2440 modprobe: FATAL: Could not load /lib/modules/2.6.32.2-FriendlyARM/modules.dep: No such file or directory
+Dec  8 09:58:00 mini2440 modprobe: FATAL: Could not load /lib/modules/2.6.32.2-FriendlyARM/modules.dep: No such file or directory
+Dec  8 09:58:00 mini2440 modprobe: FATAL: Could not load /lib/modules/2.6.32.2-FriendlyARM/modules.dep: No such file or directory
+Dec  8 09:59:34 mini2440 init: Id "T0" respawning too fast: disabled for 5 minutes
+Dec  8 10:02:10 mini2440 modprobe: FATAL: Could not load /lib/modules/2.6.32.2-FriendlyARM/modules.dep: No such file or directory
+Dec  8 10:02:10 mini2440 modprobe: FATAL: Could not load /lib/modules/2.6.32.2-FriendlyARM/modules.dep: No such file or directory
+Dec  8 10:06:16 mini2440 init: Id "T0" respawning too fast: disabled for 5 minutes
+Jan  8 09:27:45 mini2440 init: Id "T0" respawning too fast: disabled for 5 minutes
+Jan  8 09:34:30 mini2440 init: Id "T0" respawning too fast: disabled for 5 minutes
+Jan  8 09:41:15 mini2440 init: Id "T0" respawning too fast: disabled for 5 minutes
+Jan  8 10:01:00 mini2440 init: Id "T0" respawning too fast: disabled for 5 minutes
+Jan  8 10:03:57 mini2440 init: Switching to runlevel: 6
+Jan  8 10:08:19 mini2440 init: Id "T0" respawning too fast: disabled for 5 minutes
+Jan  8 10:15:04 mini2440 init: Id "T0" respawning too fast: disabled for 5 minutes
+Jan  8 10:21:50 mini2440 init: Id "T0" respawning too fast: disabled for 5 minutes
+Jan  8 10:28:35 mini2440 init: Id "T0" respawning too fast: disabled for 5 minutes
+Jan  8 10:35:20 mini2440 init: Id "T0" respawning too fast: disabled for 5 minutes
+Jan  8 10:41:23 mini2440 init: Id "T0" respawning too fast: disabled for 5 minutes
+Jan  8 10:48:08 mini2440 init: Id "T0" respawning too fast: disabled for 5 minutes
+Jan  8 10:54:53 mini2440 init: Id "T0" respawning too fast: disabled for 5 minutes
+Jan  8 11:01:38 mini2440 init: Id "T0" respawning too fast: disabled for 5 minutes
+Jan  8 11:08:23 mini2440 init: Id "T0" respawning too fast: disabled for 5 minutes
+Jan  8 11:15:08 mini2440 init: Id "T0" respawning too fast: disabled for 5 minutes
+Jan  8 14:44:39 mini2440 init: Id "T0" respawning too fast: disabled for 5 minutes
+Jan  8 14:51:24 mini2440 init: Id "T0" respawning too fast: disabled for 5 minutes
+Jan  8 14:58:10 mini2440 init: Id "T0" respawning too fast: disabled for 5 minutes
+Jan  8 15:04:55 mini2440 init: Id "T0" respawning too fast: disabled for 5 minutes
+Jan  8 15:11:40 mini2440 init: Id "T0" respawning too fast: disabled for 5 minutes
+Jan  8 15:18:25 mini2440 init: Id "T0" respawning too fast: disabled for 5 minutes
+Jan  8 15:25:10 mini2440 init: Id "T0" respawning too fast: disabled for 5 minutes
+Jan  8 15:31:55 mini2440 init: Id "T0" respawning too fast: disabled for 5 minutes
+Jan  8 15:38:40 mini2440 init: Id "T0" respawning too fast: disabled for 5 minutes
+Jan  8 15:45:25 mini2440 init: Id "T0" respawning too fast: disabled for 5 minutes
+Jan  8 15:52:10 mini2440 init: Id "T0" respawning too fast: disabled for 5 minutes
+Jan  8 15:58:55 mini2440 init: Id "T0" respawning too fast: disabled for 5 minutes
+Jan  8 16:05:40 mini2440 init: Id "T0" respawning too fast: disabled for 5 minutes
+Jan  8 16:12:25 mini2440 init: Id "T0" respawning too fast: disabled for 5 minutes
+Jan  8 16:19:10 mini2440 init: Id "T0" respawning too fast: disabled for 5 minutes
+Jan  8 16:25:55 mini2440 init: Id "T0" respawning too fast: disabled for 5 minutes
+Jan  8 16:32:40 mini2440 init: Id "T0" respawning too fast: disabled for 5 minutes
+Jan  8 16:39:25 mini2440 init: Id "T0" respawning too fast: disabled for 5 minutes
+Jan  8 16:46:10 mini2440 init: Id "T0" respawning too fast: disabled for 5 minutes
+Jan  8 16:52:55 mini2440 init: Id "T0" respawning too fast: disabled for 5 minutes
+Jan  8 16:59:40 mini2440 init: Id "T0" respawning too fast: disabled for 5 minutes
+Jan  8 17:06:25 mini2440 init: Id "T0" respawning too fast: disabled for 5 minutes

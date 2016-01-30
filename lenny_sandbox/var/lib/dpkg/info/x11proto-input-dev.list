@@ -1,0 +1,16 @@
+/.
+/usr
+/usr/share
+/usr/share/doc
+/usr/share/doc/x11proto-input-dev
+/usr/share/doc/x11proto-input-dev/copyright
+/usr/share/doc/x11proto-input-dev/changelog.Debian.gz
+/usr/include
+/usr/include/X11
+/usr/include/X11/extensions
+/usr/include/X11/extensions/XI.h
+/usr/include/X11/extensions/XInput.h
+/usr/include/X11/extensions/XIproto.h
+/usr/lib
+/usr/lib/pkgconfig
+/usr/lib/pkgconfig/inputproto.pc

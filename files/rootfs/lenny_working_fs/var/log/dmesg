@@ -1,0 +1,402 @@
+Linux version 2.6.32.2-FriendlyARM (root@olegartys-HP-Pavilion-15-Notebook-PC) (gcc version 4.4.3 (ctng-1.6.1) ) #2 Fri Jan 8 14:22:40 UTC 2016
+CPU: ARM920T [41129200] revision 0 (ARMv4T), cr=c0007177
+CPU: VIVT data cache, VIVT instruction cache
+Machine: FriendlyARM Mini2440 development board
+Memory policy: ECC disabled, Data cache writeback
+On node 0 totalpages: 16384
+free_area_init_node: node 0, pgdat c0485484, node_mem_map c04bd000
+  Normal zone: 128 pages used for memmap
+  Normal zone: 0 pages reserved
+  Normal zone: 16256 pages, LIFO batch:3
+CPU S3C2440A (id 0x32440001)
+S3C24XX Clocks, (c) 2004 Simtec Electronics
+S3C244X: core 405.000 MHz, memory 101.250 MHz, peripheral 50.625 MHz
+CLOCK: Slow mode (1.500 MHz), fast, MPLL on, UPLL on
+Built 1 zonelists in Zone order, mobility grouping on.  Total pages: 16256
+Kernel command line: root=/dev/nfs nfsroot=192.168.42.1:/srv/nfs rw ip=192.168.42.2:255.255.255.0 init=/sbin/init console=ttySAC0,115200
+PID hash table entries: 256 (order: -2, 1024 bytes)
+Dentry cache hash table entries: 8192 (order: 3, 32768 bytes)
+Inode-cache hash table entries: 4096 (order: 2, 16384 bytes)
+Memory: 64MB = 64MB total
+Memory: 60060KB available (4200K code, 453K data, 156K init, 0K highmem)
+SLUB: Genslabs=11, HWalign=32, Order=0-3, MinObjects=0, CPUs=1, Nodes=1
+Hierarchical RCU implementation.
+NR_IRQS:85
+irq: clearing subpending status 00000003
+timer tcon=00500000, tcnt a4ca, tcfg 00000200,00000000, usec 00001e57
+Console: colour dummy device 80x30
+console [ttySAC0] enabled
+Calibrating delay loop... 313.75 BogoMIPS (lpj=784384)
+Mount-cache hash table entries: 512
+CPU: Testing write buffer coherency: ok
+NET: Registered protocol family 16
+S3C2440: Initialising architecture
+S3C2440: IRQ Support
+S3C24XX DMA Driver, (c) 2003-2004,2006 Simtec Electronics
+DMA channel 0 at c4808000, irq 33
+DMA channel 1 at c4808040, irq 34
+DMA channel 2 at c4808080, irq 35
+DMA channel 3 at c48080c0, irq 36
+S3C244X: Clock Support, DVS off
+bio: create slab <bio-0> at 0
+SCSI subsystem initialized
+usbcore: registered new interface driver usbfs
+usbcore: registered new interface driver hub
+usbcore: registered new device driver usb
+s3c-i2c s3c2440-i2c: slave address 0x10
+s3c-i2c s3c2440-i2c: bus frequency set to 98 KHz
+s3c-i2c s3c2440-i2c: i2c-0: S3C I2C adapter
+NET: Registered protocol family 2
+IP route cache hash table entries: 1024 (order: 0, 4096 bytes)
+TCP established hash table entries: 2048 (order: 2, 16384 bytes)
+TCP bind hash table entries: 2048 (order: 1, 8192 bytes)
+TCP: Hash tables configured (established 2048 bind 2048)
+TCP reno registered
+NET: Registered protocol family 1
+RPC: Registered udp transport module.
+RPC: Registered tcp transport module.
+RPC: Registered tcp NFSv4.1 backchannel transport module.
+NetWinder Floating Point Emulator V0.97 (double precision)
+yaffs Jan  8 2016 14:20:41 Installing. 
+msgmni has been set to 117
+alg: No test for stdrng (krng)
+io scheduler noop registered (default)
+s3c2410fb: devinit
+s3c2410fb: got and enabled clock
+s3c2410fb: map_video_memory(fbi=c3896a50) map_size 155648
+s3c2410fb: map_video_memory: clear ffc00000:00026000
+s3c2410fb: map_video_memory: dma=338c0000 cpu=ffc00000 size=00026000
+s3c2410fb: got video memory
+s3c2410fb: LPCSEL    = 0x00000f82
+s3c2410fb: replacing TPAL 00000000
+s3c2410fb: check_var(var=c3896820, info=c3896800)
+s3c2410fb: pixclk 170000, divisor is 17
+s3c2410fb: s3c2410fb_activate_var: var->xres  = 320
+s3c2410fb: s3c2410fb_activate_var: var->yres  = 240
+s3c2410fb: s3c2410fb_activate_var: var->bpp   = 16
+s3c2410fb: setting vert: up=10, low=2, sync=3
+s3c2410fb: setting horz: lft=13, rt=6, sync=2
+s3c2410fb: new register set:
+s3c2410fb: lcdcon[1] = 0x00000878
+s3c2410fb: lcdcon[2] = 0x093bc042
+s3c2410fb: lcdcon[3] = 0x00293f0c
+s3c2410fb: lcdcon[4] = 0x00000001
+s3c2410fb: lcdcon[5] = 0x00000f01
+s3c2410fb: LCDSADDR1 = 0x19c60000
+s3c2410fb: LCDSADDR2 = 0x19c72c00
+s3c2410fb: LCDSADDR3 = 0x00000140
+Console: switching to colour frame buffer device 40x15
+fb0: s3c2410fb frame buffer device
+backlight	initialized
+leds	initialized
+buttons	initialized
+pwm	initialized
+adc	initialized
+s3c2440-uart.0: s3c2410_serial0 at MMIO 0x50000000 (irq = 70) is a S3C2440
+s3c2440-uart.1: s3c2410_serial1 at MMIO 0x50004000 (irq = 73) is a S3C2440
+s3c2440-uart.2: s3c2410_serial2 at MMIO 0x50008000 (irq = 76) is a S3C2440
+loop: module loaded
+S3C24XX NAND Driver, (c) 2004 Simtec Electronics
+s3c24xx-nand s3c2440-nand: Tacls=3, 29ns Twrph0=7 69ns, Twrph1=3 29ns
+s3c24xx-nand s3c2440-nand: NAND soft ECC
+NAND device: Manufacturer ID: 0xec, Chip ID: 0x76 (Samsung NAND 64MiB 3,3V 8-bit)
+Scanning device for bad blocks
+Creating 5 MTD partitions on "NAND 64MiB 3,3V 8-bit":
+0x000000000000-0x000000040000 : "supervivi"
+0x000000040000-0x000000060000 : "param"
+0x000000060000-0x000000560000 : "Kernel"
+0x000000560000-0x000040560000 : "root"
+mtd: partition "root" extends beyond the end of device "NAND 64MiB 3,3V 8-bit" -- size truncated to 0x3aa0000
+0x000000000000-0x000040000000 : "nand"
+mtd: partition "nand" extends beyond the end of device "NAND 64MiB 3,3V 8-bit" -- size truncated to 0x4000000
+dm9000 Ethernet Driver, V1.31
+eth0: dm9000e at c4814300,c4818304 IRQ 51 MAC: 08:90:90:90:90:90 (chip)
+ohci_hcd: USB 1.1 'Open' Host Controller (OHCI) Driver
+s3c2410-ohci s3c2410-ohci: S3C24XX OHCI
+s3c2410-ohci s3c2410-ohci: new USB bus registered, assigned bus number 1
+s3c2410-ohci s3c2410-ohci: irq 42, io mem 0x49000000
+usb usb1: New USB device found, idVendor=1d6b, idProduct=0001
+usb usb1: New USB device strings: Mfr=3, Product=2, SerialNumber=1
+usb usb1: Product: S3C24XX OHCI
+usb usb1: Manufacturer: Linux 2.6.32.2-FriendlyARM ohci_hcd
+usb usb1: SerialNumber: s3c24xx
+usb usb1: configuration #1 chosen from 1 choice
+hub 1-0:1.0: USB hub found
+hub 1-0:1.0: 3 ports detected
+Initializing USB Mass Storage driver...
+usbcore: registered new interface driver usb-storage
+USB Mass Storage support registered.
+usbcore: registered new interface driver ums-alauda
+usbcore: registered new interface driver ums-cypress
+usbcore: registered new interface driver ums-datafab
+usbcore: registered new interface driver ums-freecom
+usbcore: registered new interface driver ums-isd200
+usbcore: registered new interface driver ums-jumpshot
+usbcore: registered new interface driver ums-karma
+usbcore: registered new interface driver ums-onetouch
+usbcore: registered new interface driver ums-sddr09
+usbcore: registered new interface driver ums-sddr55
+usbcore: registered new interface driver ums-usbat
+usbcore: registered new interface driver usbserial
+USB Serial support registered for generic
+usbcore: registered new interface driver usbserial_generic
+usbserial: USB Serial Driver core
+USB Serial support registered for aircable
+usbcore: registered new interface driver aircable
+USB Serial support registered for ark3116
+usbcore: registered new interface driver ark3116
+USB Serial support registered for Belkin / Peracom / GoHubs USB Serial Adapter
+usbcore: registered new interface driver belkin
+belkin_sa: v1.2:USB Belkin Serial converter driver
+USB Serial support registered for ch341-uart
+usbcore: registered new interface driver ch341
+USB Serial support registered for cp210x
+usbcore: registered new interface driver cp210x
+cp210x: v0.09:Silicon Labs CP210x RS232 serial adaptor driver
+USB Serial support registered for Reiner SCT Cyberjack USB card reader
+usbcore: registered new interface driver cyberjack
+cyberjack: v1.01 Matthias Bruestle
+cyberjack: REINER SCT cyberJack pinpad/e-com USB Chipcard Reader Driver
+USB Serial support registered for DeLorme Earthmate USB
+USB Serial support registered for HID->COM RS232 Adapter
+USB Serial support registered for Nokia CA-42 V2 Adapter
+usbcore: registered new interface driver cypress
+cypress_m8: v1.09:Cypress USB to Serial Driver
+USB Serial support registered for Digi 2 port USB adapter
+USB Serial support registered for Digi 4 port USB adapter
+usbcore: registered new interface driver digi_acceleport
+digi_acceleport: v1.80.1.2:Digi AccelePort USB-2/USB-4 Serial Converter driver
+USB Serial support registered for Edgeport 2 port adapter
+USB Serial support registered for Edgeport 4 port adapter
+USB Serial support registered for Edgeport 8 port adapter
+USB Serial support registered for EPiC device
+usbcore: registered new interface driver io_edgeport
+io_edgeport: v2.7:Edgeport USB Serial Driver
+USB Serial support registered for Edgeport TI 1 port adapter
+USB Serial support registered for Edgeport TI 2 port adapter
+usbcore: registered new interface driver io_ti
+io_ti: v0.7mode043006:Edgeport USB Serial Driver
+USB Serial support registered for empeg
+usbcore: registered new interface driver empeg
+empeg: v1.2:USB Empeg Mark I/II Driver
+USB Serial support registered for FTDI USB Serial Device
+usbcore: registered new interface driver ftdi_sio
+ftdi_sio: v1.5.0:USB FTDI Serial Converters Driver
+USB Serial support registered for funsoft
+usbcore: registered new interface driver funsoft
+USB Serial support registered for Garmin GPS usb/tty
+usbcore: registered new interface driver garmin_gps
+garmin_gps: v0.33:garmin gps driver
+USB Serial support registered for hp4X
+usbcore: registered new interface driver hp4X
+hp4x: v1.00:HP4x (48/49) Generic Serial driver
+USB Serial support registered for PocketPC PDA
+usbcore: registered new interface driver ipaq
+ipaq: v0.5:USB PocketPC PDA driver
+USB Serial support registered for IPWireless converter
+usbcore: registered new interface driver ipwtty
+ipw: v0.3:IPWireless tty driver
+USB Serial support registered for IR Dongle
+usbcore: registered new interface driver ir-usb
+ir_usb: v0.4:USB IR Dongle driver
+USB Serial support registered for iuu_phoenix
+usbcore: registered new interface driver iuu_phoenix
+iuu_phoenix: v0.11:Infinity USB Unlimited Phoenix driver
+USB Serial support registered for Keyspan - (without firmware)
+USB Serial support registered for Keyspan 1 port adapter
+USB Serial support registered for Keyspan 2 port adapter
+USB Serial support registered for Keyspan 4 port adapter
+usbcore: registered new interface driver keyspan
+keyspan: v1.1.5:Keyspan USB to Serial Converter Driver
+USB Serial support registered for Keyspan PDA
+USB Serial support registered for Keyspan PDA - (prerenumeration)
+USB Serial support registered for Xircom / Entregra PGS - (prerenumeration)
+usbcore: registered new interface driver keyspan_pda
+keyspan_pda: v1.1:USB Keyspan PDA Converter driver
+USB Serial support registered for KL5KUSB105D / PalmConnect
+usbcore: registered new interface driver kl5kusb105d
+kl5kusb105: v0.3a:KLSI KL5KUSB105 chipset USB->Serial Converter driver
+USB Serial support registered for KOBIL USB smart card terminal
+usbcore: registered new interface driver kobil
+kobil_sct: 21/05/2004:KOBIL USB Smart Card Terminal Driver (experimental)
+USB Serial support registered for MCT U232
+usbcore: registered new interface driver mct_u232
+mct_u232: z2.1:Magic Control Technology USB-RS232 converter driver
+USB Serial support registered for Moschip 2 port adapter
+mos7720: 1.0.0.4F:Moschip USB Serial Driver
+usbcore: registered new interface driver moschip7720
+USB Serial support registered for Moschip 7840/7820 USB Serial Driver
+mos7840: 1.3.2:Moschip 7840/7820 USB Serial Driver
+usbcore: registered new interface driver mos7840
+USB Serial support registered for moto-modem
+usbcore: registered new interface driver moto-modem
+USB Serial support registered for navman
+usbcore: registered new interface driver navman
+USB Serial support registered for ZyXEL - omni.net lcd plus usb
+usbcore: registered new interface driver omninet
+omninet: v1.1:USB ZyXEL omni.net LCD PLUS Driver
+USB Serial support registered for opticon
+usbcore: registered new interface driver opticon
+USB Serial support registered for GSM modem (1-port)
+usbcore: registered new interface driver option
+option: v0.7.2:USB Driver for GSM modems
+USB Serial support registered for oti6858
+usbcore: registered new interface driver oti6858
+USB Serial support registered for pl2303
+usbcore: registered new interface driver pl2303
+pl2303: Prolific PL2303 USB to serial adaptor driver
+USB Serial support registered for Qualcomm USB modem
+usbcore: registered new interface driver qcserial
+safe_serial: v0.0b:USB Safe Encapsulated Serial
+USB Serial support registered for safe_serial
+usbcore: registered new interface driver safe_serial
+USB Serial support registered for siemens_mpi
+usbcore: registered new interface driver siemens_mpi
+Driver for Siemens USB/MPI adapter
+Version 0.1 09/26/2005 Thomas Hergenhahn@web.de http://libnodave.sf.net
+USB Serial support registered for Sierra USB modem
+usbcore: registered new interface driver sierra
+sierra: v.1.3.8:USB Driver for Sierra Wireless USB modems
+USB Serial support registered for SPCP8x5
+usbcore: registered new interface driver spcp8x5
+spcp8x5: v0.04:SPCP8x5 USB to serial adaptor driver
+USB Serial support registered for symbol
+usbcore: registered new interface driver symbol
+USB Serial support registered for TI USB 3410 1 port adapter
+USB Serial support registered for TI USB 5052 2 port adapter
+usbcore: registered new interface driver ti_usb_3410_5052
+ti_usb_3410_5052: v0.9:TI USB 3410/5052 Serial Driver
+USB Serial support registered for Handspring Visor / Palm OS
+USB Serial support registered for Sony Clie 3.5
+USB Serial support registered for Sony Clie 5.0
+usbcore: registered new interface driver visor
+visor: USB HandSpring Visor / Palm OS driver
+USB Serial support registered for Connect Tech - WhiteHEAT - (prerenumeration)
+USB Serial support registered for Connect Tech - WhiteHEAT
+usbcore: registered new interface driver whiteheat
+whiteheat: v2.0:USB ConnectTech WhiteHEAT driver
+mice: PS/2 mouse device common for all mice
+s3c2410 TouchScreen successfully loaded
+input: s3c2410 TouchScreen as /devices/virtual/input/input0
+touchscreen-1wire	initialized
+backlight-1wire	initialized
+S3C24XX RTC, (c) 2004,2006 Simtec Electronics
+s3c2410-rtc s3c2410-rtc: rtc disabled, re-enabling
+s3c2410-rtc s3c2410-rtc: rtc core: registered s3c as rtc0
+i2c /dev entries driver
+Linux video capture interface: v2.00
+gspca: main v2.7.0 registered
+usbcore: registered new interface driver conex
+conex: registered
+usbcore: registered new interface driver etoms
+etoms: registered
+usbcore: registered new interface driver finepix
+finepix: registered
+usbcore: registered new interface driver jeilinj
+jeilinj: registered
+usbcore: registered new interface driver mars
+mars: registered
+usbcore: registered new interface driver mr97310a
+mr97310a: registered
+usbcore: registered new interface driver ov519
+ov519: registered
+usbcore: registered new interface driver ov534
+ov534: registered
+usbcore: registered new interface driver pac207
+pac207: registered
+usbcore: registered new interface driver pac7311
+pac7311: registered
+usbcore: registered new interface driver sn9c20x
+sn9c20x: registered
+usbcore: registered new interface driver sonixb
+sonixb: registered
+usbcore: registered new interface driver sonixj
+sonixj: registered
+usbcore: registered new interface driver spca500
+spca500: registered
+usbcore: registered new interface driver spca501
+spca501: registered
+usbcore: registered new interface driver spca505
+spca505: registered
+usbcore: registered new interface driver spca506
+spca506: registered
+usbcore: registered new interface driver spca508
+spca508: registered
+usbcore: registered new interface driver spca561
+spca561: registered
+usbcore: registered new interface driver sq905
+sq905: registered
+usbcore: registered new interface driver sq905c
+sq905c: registered
+usbcore: registered new interface driver sunplus
+sunplus: registered
+usbcore: registered new interface driver stk014
+stk014: registered
+usbcore: registered new interface driver t613
+t613: registered
+usbcore: registered new interface driver tv8532
+tv8532: registered
+usbcore: registered new interface driver vc032x
+vc032x: registered
+usbcore: registered new interface driver zc3xx
+zc3xx: registered
+usbcore: registered new interface driver ALi m5602
+ALi m5602: registered
+usbcore: registered new interface driver STV06xx
+STV06xx: registered
+gspca_gl860: driver startup - version 0.9d10
+usbcore: registered new interface driver gspca_gl860
+gspca_gl860: driver registered
+usbcore: registered new interface driver uvcvideo
+USB Video Class driver (v0.1.0)
+initializing s3c2440 camera interface......
+s3c2440 camif init done
+Loading OV9650 driver.........
+SCCB address 0x60, manufacture ID 0xFFFF, expect 0x7FA2
+SCCB address 0x60, manufacture ID 0xFFFF, expect 0x7FA2
+No OV9650 found!!!
+S3C2410 Watchdog Timer, (c) 2004 Simtec Electronics
+s3c2410-wdt s3c2410-wdt: watchdog inactive, reset disabled, irq enabled
+s3c-sdi s3c2440-sdi: powered down.
+s3c-sdi s3c2440-sdi: mmc0 - using pio, sw SDIO IRQ
+usbcore: registered new interface driver usbhid
+usbhid: v2.6:USB HID core driver
+Advanced Linux Sound Architecture Driver Version 1.0.21.
+No device for DAI UDA134X
+No device for DAI s3c24xx-i2s
+S3C24XX_UDA134X SoC Audio driver
+UDA134X SoC Audio Codec
+asoc: UDA134X <-> s3c24xx-i2s mapping ok
+usb 1-2: new full speed USB device using s3c2410-ohci and address 2
+ALSA device list:
+  #0: S3C24XX_UDA134X (UDA134X)
+TCP cubic registered
+NET: Registered protocol family 17
+s3c2410-rtc s3c2410-rtc: setting system clock to 2016-01-08 14:42:30 UTC (1452264150)
+usb 1-2: New USB device found, idVendor=0627, idProduct=0001
+usb 1-2: New USB device strings: Mfr=3, Product=2, SerialNumber=1
+usb 1-2: Product: QEMU USB Mouse
+usb 1-2: Manufacturer: QEMU 0.10.50
+usb 1-2: SerialNumber: 1
+usb 1-2: configuration #1 chosen from 1 choice
+input: QEMU 0.10.50 QEMU USB Mouse as /devices/platform/s3c2410-ohci/usb1/1-2/1-2:1.0/input/input1
+generic-usb 0003:0627:0001.0001: input: USB HID v0.01 Mouse [QEMU 0.10.50 QEMU USB Mouse] on usb-s3c24xx-2/input0
+usb 1-3: new full speed USB device using s3c2410-ohci and address 3
+usb 1-3: New USB device found, idVendor=0627, idProduct=0001
+usb 1-3: New USB device strings: Mfr=3, Product=2, SerialNumber=1
+usb 1-3: Product: QEMU USB Keyboard
+usb 1-3: Manufacturer: QEMU 0.10.50
+usb 1-3: SerialNumber: 1
+usb 1-3: configuration #1 chosen from 1 choice
+input: QEMU 0.10.50 QEMU USB Keyboard as /devices/platform/s3c2410-ohci/usb1/1-3/1-3:1.0/input/input2
+generic-usb 0003:0627:0001.0002: input: USB HID v1.11 Keyboard [QEMU 0.10.50 QEMU USB Keyboard] on usb-s3c24xx-3/input0
+eth0: link up, 10Mbps, half-duplex, lpa 0x0400
+IP-Config: Guessing netmask 255.255.255.0
+IP-Config: Complete:
+     device=eth0, addr=192.168.42.2, mask=255.255.255.0, gw=255.255.255.255,
+     host=192.168.42.2, domain=, nis-domain=(none),
+     bootserver=255.255.255.0, rootserver=192.168.42.1, rootpath=
+Looking up port of RPC 100003/2 on 192.168.42.1
+Looking up port of RPC 100005/1 on 192.168.42.1
+VFS: Mounted root (nfs filesystem) on device 0:11.
+Freeing init memory: 156K

@@ -1,0 +1,5 @@
+Ign http://www.embedian.org lenny Release.gpg
+Ign http://www.embedian.org lenny Release
+Ign http://www.embedian.org lenny/main Packages
+Err http://www.embedian.org lenny/main Packages
+  302 Found

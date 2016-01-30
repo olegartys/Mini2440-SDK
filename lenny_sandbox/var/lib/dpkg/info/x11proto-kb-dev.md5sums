@@ -1,0 +1,8 @@
+7fc46c11e6a67764ffa3f63976c18cfd  usr/share/doc/x11proto-kb-dev/copyright
+700f33373b04923244a53a6ff71d4809  usr/share/doc/x11proto-kb-dev/changelog.Debian.gz
+a21aa8661d2ac8a12db3d4615e930466  usr/include/X11/extensions/XKB.h
+6ca03445637df977de2bada949faf669  usr/include/X11/extensions/XKBgeom.h
+b945cb45a767d538cf6dd97f80481135  usr/include/X11/extensions/XKBproto.h
+4a268f54ca155e20f9fac65c6bbdc645  usr/include/X11/extensions/XKBsrv.h
+e7f0465c94c5b08d65e6ae644c8f5202  usr/include/X11/extensions/XKBstr.h
+0417884ff3501f09e3817c7f759dd495  usr/lib/pkgconfig/kbproto.pc

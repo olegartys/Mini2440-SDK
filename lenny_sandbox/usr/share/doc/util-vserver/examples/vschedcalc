@@ -1,0 +1,69 @@
+#!/bin/bash
+#
+# vschedcalc - Calculate token buckets
+# Copyright (C) 2005 Benedikt Boehm <hollow@gentoo.org>
+#
+# This program is free software; you can redistribute it and/or
+# modify it under the terms of the GNU General Public License
+# as published by the Free Software Foundation; either version 2
+# of the License, or (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program; if not, write to the Free Software
+# Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA
+
+trap "exit 1" INT
+
+echo ">> Welcome to the token bucket calculator"
+echo ">> You need to enter some configuration options"
+echo "   Default values are shown in brackets"
+echo
+
+# get config values
+echo -n "Kernel HZ value (1000): "
+read hz
+
+[ -z "${hz}" ] && hz=1000
+
+while true; do
+	echo -n "Fill rate: "
+	read fillrate
+	[ -n "${fillrate}" ] && break
+	echo "!! Please enter a valid fill rate"
+done
+
+while true; do
+	echo -n "Avg. CPU usage in %: "
+	read avgcpu
+	[ -n "${avgcpu}" ] && break
+	echo "!! Please enter a valid CPU usage"
+done
+
+while true; do
+	echo -n "Max. burst time in sec: "
+	read maxburst
+	[ -n "${maxburst}" ] && break
+	echo "!! Please enter a valid burst time"
+done
+
+echo -n "Hold processes after burst in sec (0): "
+read bursthold
+
+[ -z "${bursthold}" ] && bursthold=0
+
+# calculate token bucket
+let interval=100*${fillrate}/${avgcpu}
+let tokensmin=${hz}*${bursthold}*${fillrate}/${interval}
+let tokensmax=${hz}*${maxburst}-${maxburst}*${interval}
+
+echo
+echo ">> Voila. Your token bucket looks like:"
+echo "FillRate: ${fillrate}"
+echo "Interval: ${interval}"
+echo "TokensMin: ${tokensmin}"
+echo "TokensMax: ${tokensmax}"

@@ -1,0 +1,28 @@
+# Any vserver which has $MARK in /etc/vservers/<vserver-id>/apps/init/mark
+# will be started on boot. 
+MARK=default
+
+# If ALWAYS_STOP=true, then all vservers are stopped regardless if they
+# have $MARK set or not, this is set to true by default because if you
+# do not stop your vservers on shutdown, you could be left with an unclean 
+# filesystem
+ALWAYS_STOP=true
+
+# If AUTO=true, then the vservers with $MARK set will be started on boot
+# and stopped on reboot/shutdown. This is the same behavior as invoking
+# /etc/init.d/util-vserver start and /etc/init.d/util-vserver stop
+# 
+# NOTE: if ALWAYS_STOP=true (default), then all vservers are stopped
+# regardless if AUTO=false. If AUTO=true and ALWAYS_STOP=true, then
+# vservers with $MARK are shutdown the 'cleaner' way, and any unmarked
+# vservers will be stopped after, due to ALWAYS_STOP
+AUTO=true
+
+# Number of vservers which shall be started in parallel; since most
+# initmethods are spending much time time in sleeps, it is safe to
+# use a high number here
+NUMPARALLEL=6
+
+# Start/stop the vservers on tty8, in the background so the rest of the
+# boot process will end early
+BACKGROUND=true

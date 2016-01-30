@@ -1,0 +1,16 @@
+bb24778bf452c74935e1bbdf17596604  usr/share/doc/xtrans-dev/README
+a9ea65675ae0f2f86d4f8393685373c9  usr/share/doc/xtrans-dev/copyright
+b8d0a71b3866ff9318024869c03ac35e  usr/share/doc/xtrans-dev/changelog.gz
+b546c5fa50fc1e8c3b7e789709e4833b  usr/share/doc/xtrans-dev/changelog.Debian.gz
+55a39e3d395c00af8de870efc0714ac2  usr/share/aclocal/xtrans.m4
+551338452f614b1c296b83de3f7089bf  usr/include/X11/Xtrans/transport.c
+4194e2d96708977bc4c61ff8565d786d  usr/include/X11/Xtrans/Xtrans.c
+24352655e2f3d3c7ef8beabcf564ff0e  usr/include/X11/Xtrans/Xtrans.h
+43b089df9f88b072b34a9096ba67ed2c  usr/include/X11/Xtrans/Xtransdnet.c
+7ae763539773fc31bd6e7df9fe86767f  usr/include/X11/Xtrans/Xtransint.h
+d2b53100b49c92498608039582090058  usr/include/X11/Xtrans/Xtranslcl.c
+e0a6ae8abc109469123878b1ea384427  usr/include/X11/Xtrans/Xtransos2.c
+cb5f650e546ec3a5239238f85aa8480a  usr/include/X11/Xtrans/Xtranssock.c
+4fa696128bd9438f08d4333f75562dc3  usr/include/X11/Xtrans/Xtranstli.c
+d4748bdfb8cf7e07b72ec05018dc609b  usr/include/X11/Xtrans/Xtransutil.c
+dd57ab32367a731191b428a7d9f54309  usr/lib/pkgconfig/xtrans.pc

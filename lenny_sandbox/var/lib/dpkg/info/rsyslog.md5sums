@@ -1,0 +1,17 @@
+e2b5387d3f5fad8e55d4b027f708f97a  usr/share/doc/rsyslog/README.Debian
+0766b1d4205a175681ed6d87494c5641  usr/share/doc/rsyslog/copyright
+19a077fa1acd9b5a1d96f35a0d71783e  usr/share/doc/rsyslog/changelog.Debian.gz
+943381468dd3641b2c616970bd840a41  usr/share/man/man5/rsyslog.conf.5.gz
+cf791b174738e82a062cc6449447b4b7  usr/share/man/man8/rsyslogd.8.gz
+92e0354e3bb1db3325691411f7a3a59c  usr/lib/rsyslog/lmnet.so
+6dd5200a6417686945e7751e226a74a6  usr/lib/rsyslog/lmtcpclt.so
+ca681b7d7fa63995f88572220b69a37f  usr/lib/rsyslog/imuxsock.so
+32d3a81a9d18618110140e3ff9623da3  usr/lib/rsyslog/lmregexp.so
+c34a8f7fa0e09f93632d35ac3504e017  usr/lib/rsyslog/ommail.so
+accf8155cb227ab729a251cdd9b8f319  usr/lib/rsyslog/imfile.so
+95ee3b44e255ab3393228d7cb6f01230  usr/lib/rsyslog/imtcp.so
+8b715b4cd6b01d8a3f79d9e19bb34688  usr/lib/rsyslog/immark.so
+889df6cbbcd89f3e0924a8d59949dc29  usr/lib/rsyslog/imudp.so
+4ab161adec46e04a94abe683196c1684  usr/lib/rsyslog/imklog.so
+9083bc754e7b5f4eeaebee35d4c7627c  usr/lib/rsyslog/lmtcpsrv.so
+c668bf06f30cde2695bc25f2768db3c0  usr/sbin/rsyslogd

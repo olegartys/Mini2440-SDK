@@ -1,0 +1,5 @@
+# Cleanup for old versions
+util-vserver binary: postrm-contains-additional-updaterc.d-calls /etc/init.d/vservers
+# Call other function that support this.
+util-vserver binary: init.d-script-does-not-implement-required-option
+util-vserver binary: statically-linked-binary
